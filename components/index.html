@@ -1,0 +1,228 @@
+<p><font color="#100E16"><br>&lt;!DOCTYPE html&gt;
+</font></p>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+<title>网页组件分享</title>
+<meta charset="UTF-8">         
+<style>
+:root {
+--bg: hsl(260, 24%, 7%);
+--odd: hsl(259, 27%, 15%);
+--even: hsl(258, 28%, 20%);
+--border: hsl(259, 27%, 9%);
+--tableText: hsl(0, 0%, 94%);
+--tableTextH: hsl(259, 25%, 40%);
+}
+
+body {
+background: hsl(260, 24%, 7%);
+}
+
+main, .util {
+margin: 30px 20%;
+display: grid;
+grid-gap: 40px;
+}
+
+input[type="file"] {
+color: hsl(260, 24%, 67%);
+text-indent: 10px;
+}
+
+input[type="search"] {
+color: var(--tableTextH);
+background: hsl(259, 27%, 13%);
+border: none;
+padding: 10px 20px;
+border-radius: 1px;
+font-size: 1.1rem;
+}
+
+table {
+color: var(--tableText);
+border: 1px solid var(--odd);
+border-collapse: collapse;
+}
+
+th {
+font-size: 1.3rem;
+text-align: left;
+color: var(--tableTextH);
+background: hsl(259, 27%, 13%);
+padding: 10px 20px;
+}
+
+td {
+font-size: 1.1rem;
+line-height: 1.7;
+padding: 10px 20px;
+border: 1px solid var(--border);
+}
+
+td.name {
+text-align: left;
+width: 30%;
+color: #D3D3D3;
+}
+
+td.lead {
+border-left: solid 3px hsl(225, 100%, 65%);
+}
+
+tr:nth-child(odd) {
+background: var(--odd);
+}
+
+tr:nth-child(even) {
+background: var(--even);
+}
+
+[hidden] {
+display: none !important;
+}
+
+@media (max-width: 760px) {
+body {
+margin: 20px 50px 200px;
+}
+}
+
+a:link{
+
+text-decoration:none;
+
+color:#3FA6D8;
+
+}
+
+  a:hover
+
+  {
+
+  text-decoration:underline;
+
+color:#FF4081;
+
+  }
+
+  a:visited{
+
+  color:darkyellow;
+
+  text-decoration:none;
+
+  }
+
+  a:active
+
+  {color:blue;}
+</style>
+</head>
+<body>
+
+<template id="table-reset">
+    <tr>
+        <th>标题</th>
+        <th>描述</th>
+    </tr>
+</template>
+<template id="table-row-template">
+    <tr>
+        <td class="name"><abbr class="abbr" title></abbr></td>
+        <td><a class="desc" href="#" target="_blank">点我下载</a></td>
+    </tr>
+</template>
+<div class="util">
+    <input id="myfiles" type="file" accept="application/json" class="left">
+    <input id="myInput" type="search" onkeyup="search()" placeholder=" 输入感兴趣的关键字">
+</div>
+<main class="main">
+    <table id="table" data-toggle>
+        <tr>
+            <th>标题</th>
+            <th>链接</th>
+        </tr>
+    </table>
+</main>
+<script>
+const table = document.getElementById("table");
+const fileUploader = document.querySelector("#myfiles");
+
+fileUploader.setAttribute("hidden", true);
+
+const search = () => {
+const filter = myInput.value.toLowerCase();
+const rows = table.querySelectorAll("tr");
+rows.forEach(row => {
+const nested = row.querySelectorAll("td");
+const [columnA, columnB] = (nested.length === 2) ? [nested[0].textContent, nested[1].textContent] : ["", ""];
+// set search column
+const result = columnA.toLowerCase();
+row.style.display = (result.indexOf(filter) > -1) ? "" : "none";
+});
+}
+
+const checkTable = () => {
+const el = document.querySelector("[data-toggle]");
+if (el.hasAttribute("data-active")) {
+el.textContent = "";
+const fragment = document.getElementById("table-reset");
+const instance = document.importNode(fragment.content, true);
+el.appendChild(instance);
+} else el.setAttribute("data-active", true);
+}
+
+const pullfiles = function() {
+const fileInput = fileUploader;
+const file = fileInput.files[0];
+const reader = new FileReader();
+reader.onload = function(evt) {
+handleJSON(evt.target.result);
+};
+reader.readAsText(file);
+}
+
+function handleJSON(objectArray) {
+checkTable();
+const abbr_enabled = false;
+const sections = JSON.parse(objectArray);
+const fragment = document.getElementById("table-row-template");
+sections.forEach(section => {
+section.items.forEach(item => {
+const instance = document.importNode(fragment.content, true);
+//if (item === section.items[0])
+//instance.querySelector(".name").classList = "name lead";
+// enable html abbreviation tags
+if (abbr_enabled) {
+instance.querySelector(".abbr").textContent = item.name;
+instance.querySelector(".abbr").title = item.desc;
+} else
+instance.querySelector(".name").textContent = item.name;
+instance.querySelector(".desc").textContent = item.desc.split("|")[1];
+instance.querySelector(".desc").href = item.desc.split("|")[0];
+table.appendChild(instance);
+});
+});
+}
+
+fileUploader.onchange = pullfiles;
+
+
+
+/* JSON TEMPLATE
+[{
+"name": "section-name",
+"items": [{
+"name": "item-name",
+"desc": "description"
+}]
+}]
+*/
+
+
+
+/* DEFAULT TABLE DATA - (The majority of this data was sourced from https://en.wikipedia.org/w/index.php?title=List_of_computing_and_IT_abbreviations&oldid=907152883) */
+handleJSON(`[{"name":"0–9","items":[{"name":"Bootstrap侧边栏","desc":"https://Chsengni.github.io/components/Bootstrap侧边栏.rar|https://Chsengni.github.io/components/Bootstrap侧边栏.rar"},{"name":"网页打印","desc":"https://Chsengni.github.io/components/网页打印.rar|https://Chsengni.github.io/components/网页打印.rar"},{"name":"鼠标CAD效果","desc":"https://Chsengni.github.io/components/鼠标CAD效果.rar|https://Chsengni.github.io/components/鼠标CAD效果.rar"},{"name":"颜色选择器","desc":"https://Chsengni.github.io/components/颜色选择器.rar|https://Chsengni.github.io/components/颜色选择器.rar"},{"name":"省市区三级联动","desc":"https://Chsengni.github.io/components/省市区三级联动.rar|https://Chsengni.github.io/components/省市区三级联动.rar"},{"name":"动态数字时钟","desc":"https://Chsengni.github.io/components/动态数字时钟.rar|https://Chsengni.github.io/components/动态数字时钟.rar"},{"name":"自定义弹窗","desc":"https://Chsengni.github.io/components/自定义弹窗.rar|https://Chsengni.github.io/components/自定义弹窗.rar"},{"name":"弹出登录框","desc":"https://Chsengni.github.io/components/弹出登录框.rar|https://Chsengni.github.io/components/弹出登录框.rar"},{"name":"下拉导航菜单","desc":"https://Chsengni.github.io/components/下拉导航菜单.rar|https://Chsengni.github.io/components/下拉导航菜单.rar"},{"name":"解决方案滚动布局","desc":"https://Chsengni.github.io/components/解决方案滚动布局.rar|https://Chsengni.github.io/components/解决方案滚动布局.rar"},{"name":"列表滚动切换","desc":"https://Chsengni.github.io/components/列表滚动切换.rar|https://Chsengni.github.io/components/列表滚动切换.rar"},{"name":"线性发光的爱心","desc":"https://Chsengni.github.io/components/线性发光的爱心.rar|https://Chsengni.github.io/components/线性发光的爱心.rar"},{"name":"圆饼导航菜单布局","desc":"https://Chsengni.github.io/components/圆饼导航菜单布局.rar|https://Chsengni.github.io/components/圆饼导航菜单布局.rar"},{"name":"网络云结构图标","desc":"https://Chsengni.github.io/components/网络云结构图标.rar|https://Chsengni.github.io/components/网络云结构图标.rar"},{"name":"炫酷3D登录后台","desc":"https://Chsengni.github.io/components/炫酷3D登录后台.rar|https://Chsengni.github.io/components/炫酷3D登录后台.rar"},{"name":"ultra","desc":"https://Chsengni.github.io/components/ultra.exe|https://Chsengni.github.io/components/ultra.exe"},{"name":"jquery压缩","desc":"https://Chsengni.github.io/components/jquery-3.4.1.min.js|https://Chsengni.github.io/components/jquery-3.4.1.min.js"},{"name":"jquery未压缩","desc":"https://Chsengni.github.io/components/jquery-3.4.1.js|https://Chsengni.github.io/components/jquery-3.4.1.js"},{"name":"jquery其他版本下载","desc":"https://Chsengni.github.io/components/jquery_link.txt|https://Chsengni.github.io/components/jquery_link.txt"},{"name":" bootstrap的js压缩版","desc":"https://Chsengni.github.io/components/bootstrap.min.js|https://Chsengni.github.io/components/bootstrap.min.js"},{"name":"bootstrap的js未压缩版","desc":"https://Chsengni.github.io/components/bootstrap.js|https://Chsengni.github.io/components/bootstrap.js"},{"name":"bootstrap的css压缩版","desc":"https://Chsengni.github.io/components/bootstrap.min.css|https://Chsengni.github.io/components/bootstrap.min.css"},{"name":"bootstrap的css未压缩版","desc":"https://Chsengni.github.io/components/bootstrap.css|https://Chsengni.github.io/components/bootstrap.css"},{"name":"bootstrap其他版本下载","desc":"https://Chsengni.github.io/components/bootstrap_link.txt|https://Chsengni.github.io/components/bootstrap_link.txt"},{"name":"vue下载","desc":"https://Chsengni.github.io/components/vue_link.txt|https://Chsengni.github.io/components/vue_link.txt"},{"name":"angular下载","desc":"https://Chsengni.github.io/components/angular_link.txt|https://Chsengni.github.io/components/angular_link.txt"},{"name":"react下载","desc":"https://Chsengni.github.io/components/react_link.txt|https://Chsengni.github.io/components/react_link.txt"},{"name":"MiniDialog","desc":"https://Chsengni.github.io/components/MiniDialog.rar|https://Chsengni.github.io/components/MiniDialog.rar"},{"name":"layui后台模板","desc":"https://Chsengni.github.io/components/layui后台模板.rar|https://Chsengni.github.io/components/layui后台模板.rar"},{"name":"font-awesome-4.7.0","desc":"https://Chsengni.github.io/components/font-awesome-4.7.0.zip|https://Chsengni.github.io/components/font-awesome-4.7.0.zip"},{"name":"基于Bootstrap的mansory网格瀑布流布局插件","desc":"https://Chsengni.github.io/components/基于Bootstrap的mansory网格瀑布流布局插件.rar|https://Chsengni.github.io/components/基于Bootstrap的mansory网格瀑布流布局插件.rar"},{"name":"基于SVG的js圆形菜单插件","desc":"https://Chsengni.github.io/components/基于SVG的js圆形菜单插件.rar|https://Chsengni.github.io/components/基于SVG的js圆形菜单插件.rar"},{"name":"响应式的博客资源网站管理后台模板","desc":"https://Chsengni.github.io/components/响应式的博客资源网站管理后台模板.rar|https://Chsengni.github.io/components/响应式的博客资源网站管理后台模板.rar"},{"name":"企业员工客户办公管理系统模板","desc":"https://Chsengni.github.io/components/企业员工客户办公管理系统模板.rar|https://Chsengni.github.io/components/企业员工客户办公管理系统模板.rar"},{"name":"液状弯曲流体canvas背景特效","desc":"https://Chsengni.github.io/components/液状弯曲流体canvas背景特效.rar|https://Chsengni.github.io/components/液状弯曲流体canvas背景特效.rar"},{"name":"响应式后台管理网站模板","desc":"https://Chsengni.github.io/components/响应式后台管理网站模板.rar|https://Chsengni.github.io/components/响应式后台管理网站模板.rar"}]}]`);
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+							版本：2.0.0-beta.17
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/angular2-all-testing.umd.dev.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/angular2-all.umd.dev.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/angular2-all.umd.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/angular2-all.umd.min.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/angular2-polyfills.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/angular2-polyfills.min.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/angular2.dev.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/angular2.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/angular2.min.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/http.dev.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/http.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/http.min.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/router.dev.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/router.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/router.min.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/Rx.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/Rx.min.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/Rx.umd.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/Rx.umd.min.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/testing.dev.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/upgrade.dev.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/upgrade.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/upgrade.min.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/web_worker/ui.dev.js
+							  
+							https://cdn.bootcss.com/angular.js/2.0.0-beta.17/web_worker/worker.dev.js

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>词霸翻译 | 陈增林 | Chsengni</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="捷径">
+    <meta name="description" content="爬取爱词霸翻译的接口一些功能1.主要翻译： 1.英译汉 2.汉译英 2.其他翻译：详见官网 使用的接口3.接口(POST请求)： http://fy.iciba.com/ajax.php?a=fy 表单 f = auto t = auto w = 查询的单词 4.接口(GET请求)： http://fy.iciba.com/ajax.php?a=fy&amp;amp;f=auto&amp;amp;t=auto&amp;a">
+<meta name="keywords" content="捷径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="词霸翻译">
+<meta property="og:url" content="https://chsengni.github.io/2019/10/02/捷径/1/index.html">
+<meta property="og:site_name" content="陈增林">
+<meta property="og:description" content="爬取爱词霸翻译的接口一些功能1.主要翻译： 1.英译汉 2.汉译英 2.其他翻译：详见官网 使用的接口3.接口(POST请求)： http://fy.iciba.com/ajax.php?a=fy 表单 f = auto t = auto w = 查询的单词 4.接口(GET请求)： http://fy.iciba.com/ajax.php?a=fy&amp;amp;f=auto&amp;amp;t=auto&amp;a">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-04T00:23:53.719Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="词霸翻译">
+<meta name="twitter:description" content="爬取爱词霸翻译的接口一些功能1.主要翻译： 1.英译汉 2.汉译英 2.其他翻译：详见官网 使用的接口3.接口(POST请求)： http://fy.iciba.com/ajax.php?a=fy 表单 f = auto t = auto w = 查询的单词 4.接口(GET请求)： http://fy.iciba.com/ajax.php?a=fy&amp;amp;f=auto&amp;amp;t=auto&amp;a">
+    
+        <link rel="alternate" type="application/atom+xml" title="陈增林" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link href="/css/prism/prism-tomorrow-night.css" rel="stylesheet">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-list-ul"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/back_blue.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/fong.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">陈增林</h5>
+          <a href="mailto:2371778707@qq.com" title="2371778707@qq.com" class="mail">2371778707@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-folder-open"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives/"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/web/"  >
+                <i class="icon icon-lg icon-bookmark"></i>
+                网站
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">词霸翻译</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">词霸翻译</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-02T05:08:14.000Z" itemprop="datePublished" class="page-time">
+  2019-10-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/">ios</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>预览</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#爬取爱词霸翻译的接口"><span class="post-toc-text">爬取爱词霸翻译的接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一些功能"><span class="post-toc-text">一些功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用的接口"><span class="post-toc-text">使用的接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#捷径下载"><span class="post-toc-text">捷径下载</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-捷径/1"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">词霸翻译</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-02 13:08:14" datetime="2019-10-02T05:08:14.000Z"  itemprop="datePublished">2019-10-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/">ios</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章阅读总量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="爬取爱词霸翻译的接口"><a href="#爬取爱词霸翻译的接口" class="headerlink" title="爬取爱词霸翻译的接口"></a>爬取爱词霸翻译的接口</h2><h3 id="一些功能"><a href="#一些功能" class="headerlink" title="一些功能"></a>一些功能</h3><p>1.主要翻译：</p>
+<pre><code>1.英译汉
+2.汉译英
+</code></pre><p>2.其他翻译：<br><a href="http://fy.iciba.com/" target="_blank" rel="noopener">详见官网</a></p>
+<h3 id="使用的接口"><a href="#使用的接口" class="headerlink" title="使用的接口"></a>使用的接口</h3><p>3.接口(POST请求)：</p>
+<pre><code>http://fy.iciba.com/ajax.php?a=fy
+</code></pre><p>表单</p>
+<pre><code>f = auto
+t = auto
+w = 查询的单词
+</code></pre><p>4.接口(GET请求)：</p>
+<pre><code>http://fy.iciba.com/ajax.php?a=fy&amp;f=auto&amp;t=auto&amp;w=示例
+</code></pre><h3 id="捷径下载"><a href="#捷径下载" class="headerlink" title="捷径下载"></a>捷径下载</h3><p><a href="https://sharecuts.cn/shortcut/1419" target="_blank" rel="noopener">传送门</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-04T00:23:53.719Z" itemprop="dateUpdated">2019-10-04 08:23:53</time>
+</span><br>
+
+
+        
+        发布地址：<a href="/2019/10/02/捷径/1/" target="_blank" rel="external">https://chsengni.github.io/2019/10/02/捷径/1/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://chsengni.github.io">
+            <img src="/img/fong.jpg" alt="陈增林">
+            陈增林
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:a();" class="page-reward-btn waves-effect waves-circle waves-light">支持</a>
+</div>
+<!--
+<script>
+	function a(){ 
+			var procbg = document.createElement("div"); //首先创建一个div
+			procbg.setAttribute("id", "mybg"); //定义该div的id
+			procbg.style.background = "#808080";
+			procbg.style.width = "100%";
+			procbg.style.height = "100%";
+			procbg.style.position = "fixed";
+			procbg.style.top = "0";
+			procbg.style.left = "0";
+			procbg.style.zIndex = "500";
+			procbg.style.opacity = "0.2";
+			procbg.style.filter = "Alpha(opacity=70)";
+			document.body.appendChild(procbg);
+			//document.body.style.overflow = "hidden"; //取消滚动条
+	
+	}
+
+</script>
+-->
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/捷径/">捷径</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/10/02/捷径/2/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一页</div>
+        <h4 class="title">王者荣耀图片下载</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/30/后端/1/" id="post-next" class="post-nav-link">
+        <div class="tips">下一页 <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">基于SpringBoot房屋租赁系统</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+            var id = location.pathname
+            if (location.pathname.length > 50) {
+              id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+            }
+            const gitalk = new Gitalk({
+              clientID: 'ecf207fbd3dcbf960136',
+              clientSecret: '3e224efe9d9563b85c779fa10be44dd8cfa0d90f',
+              repo: 'gitalk',
+              owner: 'Chsengni',
+              admin: ['Chsengni'],
+              id: id,      // Ensure uniqueness and length less than 50
+              title: document.title.split('|')[0],
+              distractionFreeMode: false  // Facebook-like distraction free mode
+            })
+            gitalk.render('gitalk-container')
+        </script>
+    </section>
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢支持~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-item switch">切换</span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+    </main>
+	<footer class="footer">
+	
+    <div class="bottom">
+		<p>
+			
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点访客总数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点访问总量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+		</p>
+        <p>
+            <span>
+                陈增林 &copy;
+                    
+                                2019
+            </span>
+            <span>
+				  Hosted by <a href="https://pages.github.com/" style="font-weight: bold">Github Pages</a>
+			</span>
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<a href="javascript:;" id="gobottom" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-comments"></span></a>
+
+
+    <script src="//cdn.jsdelivr.net/npm/node-waves@0.7.6/src/js/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script src="/js/prism.js"></script>
+<script src="/js/prism-vim.js"></script>
+</body>
+</html>
