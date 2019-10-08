@@ -1531,33 +1531,16 @@ var Myemojis={
   "zipper_mouth_face": "https://github.githubassets.com/images/icons/emoji/unicode/1f910.png?v8",
   "zzz": "https://github.githubassets.com/images/icons/emoji/unicode/1f4a4.png?v8"
 };
- 
-var keylist=new Array(0);
+
 $(document).ready(function(){
 	
 	for(var k in Myemojis) {
 
 	//遍历对象，k即为key，obj[k]为当前k对应的值
 		keylist.push(k);
+		$("#a1").after('<img src="'+Myemojis[k]+'"/>');
 	}
-	
-	var len = 1510;	
-		
-	//console.log(keylist);
-	
-	for(var i in Myemojis){
-	
-		var ran = Math.floor(Math.random()*len);
-		
-		var key1 = keylist[ran];
-		
-		//console.log(key1);	
-		
-		var url = Myemojis[key1];
-		
-		
-		$("#a1").after('<img src="'+url+'"/>');
-	}
+
 	
 });
 
