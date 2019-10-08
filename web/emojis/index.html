@@ -1535,9 +1535,6 @@ var Myemojis={
 $(document).ready(function(){
 	
 	for(var k in Myemojis) {
-
-	//遍历对象，k即为key，obj[k]为当前k对应的值
-		keylist.push(k);
 		$("#a1").after('<img src="'+Myemojis[k]+'"/>');
 	}
 
