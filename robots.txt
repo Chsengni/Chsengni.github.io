@@ -1,0 +1,4 @@
+Sitemap: https://Chsengni.github.io/sitemap.xml
+Sitemap: https://Chsengni.github.io/baidusitemap.xml
+Sitemap: https://lin-2371778707.gitee.io/sitemap.xml
+Sitemap: https://lin-2371778707.gitee.io/baidusitemap.xml

@@ -133,6 +133,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header archives-header">
@@ -176,7 +180,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/30/音乐/2/">这么久没见</a>
+      <a class="post-title-link" href="/2019/09/30/yin-le/2/">这么久没见</a>
     </h3>
   
 
@@ -210,7 +214,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/30/音乐/1/">没有人会心疼我</a>
+      <a class="post-title-link" href="/2019/09/30/yin-le/1/">没有人会心疼我</a>
     </h3>
   
 
@@ -244,7 +248,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/30/音乐/3/">岁月神偷</a>
+      <a class="post-title-link" href="/2019/09/30/yin-le/3/">岁月神偷</a>
     </h3>
   
 
@@ -278,7 +282,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/30/前端/1/">hexo的使用</a>
+      <a class="post-title-link" href="/2019/09/30/qian-duan/1/">hexo的使用</a>
     </h3>
   
 
@@ -341,9 +345,57 @@
 <a href="javascript:;" id="gobottom" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-comments"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chsengni.github.io/archives/2019/page/2/&title=陈增林&pic=https://chsengni.github.io/img/fong.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chsengni.github.io/archives/2019/page/2/&title=陈增林&source=一个专注IT技术发展的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chsengni.github.io/archives/2019/page/2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=陈增林&url=https://chsengni.github.io/archives/2019/page/2/&via=https://chsengni.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chsengni.github.io/archives/2019/page/2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aO5KDMBBFUfa/aSadBHFft5gpSVeRy2VAh6DdH10XXvev9fQN+f7pzuNrpy0ZMmQsy7iHizDSLY6R46senyhDhowDGGQT41vz7Y6f+PTclz3LkCFDxnBD6eZ4EilDhgwZnYBbK3THIfUf/jdkyJCxFIMkfLVkjtyTJ5oTanEZMmQsyOBd97///Ml8Q4YMGUsx7nClo8c0XN6lJUOGjL0ZPMClSH6HWsCVIUPGaQxSfPL2XL8AJk98pMqQIWNTBgmand/Maqu9YGTIkLEpIy0+a2GxdiCD/D44zSFDhoxlGZ3wyo9K1AIrD98yZMg4h1ELbbVGW1phB0NNGTJkHMDgzXp+zOu7RBA13WTIkLEFo1ascvasRh6axMqQIWM7xqxwmd6BB/T4tIgMGTK2Y6RJW2dIUGvYxUWsDBkyjmSkHa3+C+Kl7MsZNxkyZGzBIBfMHRikx1tRsJYhQ8bWDB6VSbk7t21HrrrSPxcZMmRsxCCJWn/wWQOj3FaGDBnbMdLA2mmr8S3GaasMGTIOYPBhQGeQWXsd6D4yZMg4gMGbX+mAk5S76WhBhgwZ5zDucHXacLVkEZXHMmTI2JrRP2dFGmHpVtLmnQwZMk5g1IIsKXHR0BGkgOi1ypAh4wBG/3AYSQ3TMQAP/TJkyJARH88Km/u1wYMMGTJk8IMX/S3WEs1WaihDhowFGaSI/SL567TqZMiQcQ6DJ3bk6EPasEuf3hpkypAhYz3GDyYeIuDya8SGAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+<script type="text/javascript" src="/./js/love.js">
+
     <script src="//cdn.jsdelivr.net/npm/node-waves@0.7.6/src/js/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
@@ -382,5 +434,6 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 <script src="/js/prism.js"></script>
 <script src="/js/prism-vim.js"></script>
+	
 </body>
 </html>

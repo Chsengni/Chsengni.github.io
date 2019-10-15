@@ -133,6 +133,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header tags-header">
@@ -145,23 +149,23 @@
                     共计
                     
                         
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
                             1
-                        
-                    
-                        
-                    
-                        
-                    
-                        
-                    
-                        
-                    
-                        
-                    
-                        
-                    
-                        
-                    
                         
                     
                         
@@ -250,7 +254,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/30/前端/1/">hexo的使用</a>
+      <a class="post-title-link" href="/2019/09/30/qian-duan/1/">hexo的使用</a>
     </h3>
   
 
@@ -308,9 +312,57 @@
 <a href="javascript:;" id="gobottom" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-comments"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chsengni.github.io/tags/hexo入门/&title=陈增林&pic=https://chsengni.github.io/img/fong.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chsengni.github.io/tags/hexo入门/&title=陈增林&source=一个专注IT技术发展的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chsengni.github.io/tags/hexo入门/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=陈增林&url=https://chsengni.github.io/tags/hexo入门/&via=https://chsengni.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chsengni.github.io/tags/hexo入门/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACH0lEQVR42u3au3LCMBAFUP7/p8lMKooA92qdSZCOKhdg67hYax+3W7zu3+vx+nE9+33+r+SeFywMDIyPZdxfrmeMlp08N3llT6kYGBgHMOZbSSLh6zu//uWbPWNgYGAED2gD9Pz1YWBgYOSbToLvJPXFwMDAyJPYBNOmtX+Qi2NgYHwgY76J37v+9f4GBgbGv2fcxys5tOV3WNwDBgbG1oy8uJ/HujmmTWgxMDD2ZiQlszxQXtUSqJEYGBgHMNZGwdrhibYJWiS0GBgYxzDyw9laKT/ZVts8+CHgYmBgbMe4doTrqjbA2uvDwMA4hzE50iUPzs917ccAAwNjV8a8rNYmpWvjaBgYGBhrzYA2+E5KeG+ei4GBsTUjL76vjYglxbj5HjAwMM5hJAG3HSC7lveGjYGBsSmjPYrlYXHeZijSYwwMjAMY8xJb2zZYwxTlNgwMjI0Y7bFsXjhrSUXox8DA2JoxGZjIA+Jaoa1OpzEwMDZlTG66WMQPmqBt8oyBgXECYzJs0YbjeovJ8REDA2NrRrtaWNuevOrzgIGBsQfjXq728NeOt7bpLgYGxgmMNsgmxf22edA2FTAwMM5kJEE2bxhMxsLWinoYGBjnMPKsNynM5Qe+teT5aQ8WAwMDI05i27Gw/DCKgYGBMRl6yEe+1loFb/aAgYFxACMJoHlKOWktFIkrBgbGMYy2MbBWSstT3zxMj/obGBgYn8H4AsMSdHISIrfBAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+<script type="text/javascript" src="/./js/love.js">
+
     <script src="//cdn.jsdelivr.net/npm/node-waves@0.7.6/src/js/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
@@ -349,5 +401,6 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 <script src="/js/prism.js"></script>
 <script src="/js/prism-vim.js"></script>
+	
 </body>
 </html>

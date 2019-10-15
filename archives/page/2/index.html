@@ -133,6 +133,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header archives-header">
@@ -176,7 +180,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/30/音乐/2/">这么久没见</a>
+      <a class="post-title-link" href="/2019/09/30/yin-le/2/">这么久没见</a>
     </h3>
   
 
@@ -210,7 +214,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/30/音乐/1/">没有人会心疼我</a>
+      <a class="post-title-link" href="/2019/09/30/yin-le/1/">没有人会心疼我</a>
     </h3>
   
 
@@ -244,7 +248,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/30/音乐/3/">岁月神偷</a>
+      <a class="post-title-link" href="/2019/09/30/yin-le/3/">岁月神偷</a>
     </h3>
   
 
@@ -278,7 +282,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/30/前端/1/">hexo的使用</a>
+      <a class="post-title-link" href="/2019/09/30/qian-duan/1/">hexo的使用</a>
     </h3>
   
 
@@ -341,9 +345,57 @@
 <a href="javascript:;" id="gobottom" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-comments"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chsengni.github.io/archives/page/2/&title=陈增林&pic=https://chsengni.github.io/img/fong.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chsengni.github.io/archives/page/2/&title=陈增林&source=一个专注IT技术发展的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chsengni.github.io/archives/page/2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=陈增林&url=https://chsengni.github.io/archives/page/2/&via=https://chsengni.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chsengni.github.io/archives/page/2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aS47CMBBFUfa/6TDpAQhw31dlkGzfjFAU7BwGRX18u+Hrerke75NnHu+8rkyenHDJkCFjWcY1vMYbpN/id/i7yZAh4xwGCYUk4pHtxzuSfWXIkCFjzBgHTR6mP+0uQ4YMGbMY6ZY81MqQIUNGp4jlyVytJP5RLS5DhowFGbzr/vvPX5lvyJAhYynGFV795v7c9/lbU4YMGVsz0qY/T85IEy0oUEFKKkOGjDMZafHZCa98kFDsGsqQIWNZRprepWGRh+w03Xy6I0OGjK0ZaRqXHp6Yu3L8vyFDhowtGJ2WGS9r+TPFIyAyZMjYmkEW4uG1g+8PFWTIkHEOI229zT20wX/KfwKuDBkyNmLUQmr6TKeph/4MZMiQsTVjXGTy8EpWqK0Z5H4yZMjYmsELTj4GqL1uOh6QIUPGCYxOoOS/EFk5PlrxqYiVIUPGpoz+0HHWsDP9r5AhQ8YJjH7jngwmO2POuIiVIUPGpoxa6tZvk/FQjr4rQ4aMIxmd7l3apKuNOd+MMGXIkLE1gxzMqjXLagfIilmtDBkyDmCQUSK5T2C1pBOdGZEhQ8ZGjCu8aqVvGkbjIC5DhoytGbXkbLzNN9pt/aJahgwZqzP4K/LRZprq1Y56yJAh4zQGD3ykcCX3Z40cZMiQIYOkZfzl0iI5KI9lyJAho9Q440Vp2tqblhrKkCFjKUanldYJr7W+oAwZMk5j8NKRv256wIL/QK1BpgwZMtZj3AEjOHRyZmyh6gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+<script type="text/javascript" src="/./js/love.js">
+
     <script src="//cdn.jsdelivr.net/npm/node-waves@0.7.6/src/js/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
@@ -382,5 +434,6 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 <script src="/js/prism.js"></script>
 <script src="/js/prism-vim.js"></script>
+	
 </body>
 </html>
