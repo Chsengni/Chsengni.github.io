@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chsengni.github.io/"/>
-  <updated>2019-10-15T12:06:17.491Z</updated>
+  <updated>2019-11-13T10:01:52.419Z</updated>
   <id>https://chsengni.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>酷Q 机器人</title>
+    <link href="https://chsengni.github.io/2019/11/13/yu-le/2/"/>
+    <id>https://chsengni.github.io/2019/11/13/yu-le/2/</id>
+    <published>2019-11-13T08:12:47.000Z</published>
+    <updated>2019-11-13T10:01:52.419Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="本篇介绍易语言开发酷Q插件"><a href="#本篇介绍易语言开发酷Q插件" class="headerlink" title="本篇介绍易语言开发酷Q插件"></a>本篇介绍易语言开发酷Q插件</h3><p><a href="https://docs.cqp.im/dev/" target="_blank" rel="noopener">酷Q开发文档</a></p><p>1.如何使用易语言进行<a href="https://cqp.cc/" target="_blank" rel="noopener">酷Q</a>插件开发</p><p>2.操作发送的消息</p><p>3.生成dll</p><p>4.如何打包成.cpk</p><h4 id="首先我们得下载最新版本SDK"><a href="#首先我们得下载最新版本SDK" class="headerlink" title="首先我们得下载最新版本SDK"></a>首先我们得下载最新版本SDK</h4><p><a href="https://cqp.cc/t/15124" target="_blank" rel="noopener">传送门</a> 需要登录并扣除CB下载(支持开发者们)</p><p>目前官网提供了以下几种SDK(这里我使用EPL易语言SDK)：</p><p><img src="../../../../../res/2019/11/13/2/1.jpg" alt></p><h4 id="下载之后解压的目录结构："><a href="#下载之后解压的目录结构：" class="headerlink" title="下载之后解压的目录结构："></a>下载之后解压的目录结构：</h4><p><img src="../../../../../res/2019/11/13/2/2.jpg" alt></p><h4 id="打开”易语言SDK说明-txt”阅读"><a href="#打开”易语言SDK说明-txt”阅读" class="headerlink" title="打开”易语言SDK说明.txt”阅读"></a>打开”易语言SDK说明.txt”阅读</h4><p>里面写了这几个目录和文件是什么。</p><p><img src="../../../../../res/2019/11/13/2/6.jpg" alt></p><h4 id="开发之前我们必须做的的设置"><a href="#开发之前我们必须做的的设置" class="headerlink" title="开发之前我们必须做的的设置"></a>开发之前我们必须做的的设置</h4><p>打开酷Q安装文件夹(解压的地方)<br>如图所示：<br>然后打开conf文件夹</p><p><img src="../../../../../res/2019/11/13/2/3.jpg" alt></p><p>conf目录文件：<br>然后文本编辑器打开 “CQP.cfg”在文档最后加入</p><pre><code>[Dev]Enable=1</code></pre><p>代表开启 开发者模式</p><p><img src="../../../../../res/2019/11/13/2/4.jpg" alt></p><p>如图所示：</p><p><img src="../../../../../res/2019/11/13/2/5.jpg" alt></p><p>配置好之后，会有一个dev文件，如图所示：</p><p><img src="../../../../../res/2019/11/13/2/3.jpg" alt></p><p>我们将下载的SDK文件夹中的 com.example.demo复制一份到dev里面</p><p><img src="../../../../../res/2019/11/13/2/2.jpg" alt></p><p><img src="../../../../../res/2019/11/13/2/7.jpg" alt></p><p>再将 CQPAppSdk.ec 复制到 com.example.demo文件夹下</p><p><img src="../../../../../res/2019/11/13/2/8.jpg" alt></p><p>OK </p><h4 id="打开-app-json"><a href="#打开-app-json" class="headerlink" title="打开 app.json"></a>打开 app.json</h4><p>修改内容并保存</p><pre><code>{&quot;ret&quot;:1,   // 返回码，固定为1&quot;apiver&quot;:9,// Api版本，本SDK为9&quot;appid&quot;:&quot;com.czl.copy&quot;, //自定义appid,起一个你喜欢的名字，对应你的文件名 com.czl.copy,所以你要把com.example.demo 文件夹重命名为（appid）com.czl.copy，防止和别人的插件重复&quot;name&quot;:&quot;复读机&quot;,  // 应用名称，起一个你喜欢的名字&quot;version&quot;:&quot;1.0.0&quot;, // 应用版本&quot;version_id&quot;:1,// 应用顺序版本（每次发布时至少+1）&quot;author&quot;:&quot;Chsengni&quot;,// 应用作者 &quot;description&quot;:&quot;人生就是一个复读机，Gitee主页：https://lin-2371778707.gitee.io&quot;..................&quot;menu&quot;:[    ......    ......]}</code></pre><p>没有用菜单可以直接删除</p><h4 id="双击-app-e（前提是你安装了易语言）"><a href="#双击-app-e（前提是你安装了易语言）" class="headerlink" title="双击 app.e（前提是你安装了易语言）"></a>双击 app.e（前提是你安装了易语言）</h4><p>修改Appid<br>AppID ＝ “com.czl.copy” </p><p><img src="../../../../../res/2019/11/13/2/9.jpg" alt></p><p>现在就可以 静态编译生成 app.dll</p><p>当然我们是要改一下<br>找到私聊信息这一块</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="../../../../../res/2019/11/13/2/10.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure><p>把前面的@人去了</p><p><img src="../../../../../res/2019/11/13/2/11.jpg" alt></p><p>然后接收私聊信息时候就会回复相同信息。</p><pre><code>CQ.发送私聊消息 (fromAccount, msg)</code></pre><p>如果修改群消息模块也一样！</p><pre><code>CQ.发送群消息 (fromGroup, msg)</code></pre><h4 id="进行-静态编译-将app-dll保存到-com-czl-copy"><a href="#进行-静态编译-将app-dll保存到-com-czl-copy" class="headerlink" title="进行 静态编译 将app.dll保存到 com.czl.copy"></a>进行 静态编译 将app.dll保存到 com.czl.copy</h4><p><img src="../../../../../res/2019/11/13/2/12.jpg" alt></p><h4 id="登录-酷Q-进入应用管理-可以看到-复制-这个插件"><a href="#登录-酷Q-进入应用管理-可以看到-复制-这个插件" class="headerlink" title="登录 酷Q 进入应用管理 可以看到 复制 这个插件"></a>登录 酷Q 进入应用管理 可以看到 复制 这个插件</h4><p><img src="../../../../../res/2019/11/13/2/13.jpg" alt></p><p>我们测试一下</p><p><img src="../../../../../res/2019/11/13/2/14.jpg" alt></p><h4 id="打包为cpk"><a href="#打包为cpk" class="headerlink" title="打包为cpk"></a>打包为cpk</h4><p><img src="../../../../../res/2019/11/13/2/15.jpg" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;本篇介绍易语言开发酷Q插件&quot;&gt;&lt;a href=&quot;#本篇介绍易语言开发酷Q插件&quot; class=&quot;headerlink&quot; title=&quot;本篇介绍易语言开发酷Q插件&quot;&gt;&lt;/a&gt;本篇介绍易语言开发酷Q插件&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://docs.cqp.
+      
+    
+    </summary>
+    
+    
+      <category term="娱乐" scheme="https://chsengni.github.io/categories/%E5%A8%B1%E4%B9%90/"/>
+    
+    
+      <category term="酷Q" scheme="https://chsengni.github.io/tags/%E9%85%B7Q/"/>
+    
+  </entry>
   
   <entry>
     <title>抖音小黄脸</title>
