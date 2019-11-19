@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chsengni.github.io/"/>
-  <updated>2019-11-13T12:36:52.567Z</updated>
+  <updated>2019-11-19T08:50:48.745Z</updated>
   <id>https://chsengni.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot集成通用 mapper</title>
+    <link href="https://chsengni.github.io/2019/11/19/hou-duan/2/"/>
+    <id>https://chsengni.github.io/2019/11/19/hou-duan/2/</id>
+    <published>2019-11-19T08:16:21.000Z</published>
+    <updated>2019-11-19T08:50:48.745Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="集成通用Mapper需要的依赖"><a href="#集成通用Mapper需要的依赖" class="headerlink" title="集成通用Mapper需要的依赖"></a>集成通用Mapper需要的依赖</h4><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;    &lt;parent&gt;        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;        &lt;version&gt;2.2.1.RELEASE&lt;/version&gt;        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;    &lt;/parent&gt;    &lt;groupId&gt;com.ch&lt;/groupId&gt;    &lt;artifactId&gt;mapper-spring-boot-starter-demo&lt;/artifactId&gt;    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;    &lt;name&gt;mapper-spring-boot-starter-demo&lt;/name&gt;    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;    &lt;properties&gt;        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;        &lt;java.version&gt;1.8&lt;/java.version&gt;    &lt;/properties&gt;    &lt;dependencies&gt;        &lt;!-- https://mvnrepository.com/artifact/tk.mybatis/mapper-spring-boot-starter --&gt;        &lt;dependency&gt;            &lt;groupId&gt;tk.mybatis&lt;/groupId&gt;            &lt;artifactId&gt;mapper-spring-boot-starter&lt;/artifactId&gt;            &lt;version&gt;2.1.5&lt;/version&gt;        &lt;/dependency&gt;        &lt;!-- https://mvnrepository.com/artifact/tk.mybatis/mapper --&gt;        &lt;dependency&gt;            &lt;groupId&gt;tk.mybatis&lt;/groupId&gt;            &lt;artifactId&gt;mapper&lt;/artifactId&gt;            &lt;version&gt;4.1.5&lt;/version&gt;        &lt;/dependency&gt;        &lt;dependency&gt;            &lt;groupId&gt;mysql&lt;/groupId&gt;            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;            &lt;scope&gt;runtime&lt;/scope&gt;        &lt;/dependency&gt;        &lt;dependency&gt;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;            &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;        &lt;/dependency&gt;        &lt;dependency&gt;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;        &lt;/dependency&gt;        &lt;dependency&gt;            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;            &lt;artifactId&gt;lombok&lt;/artifactId&gt;            &lt;optional&gt;true&lt;/optional&gt;        &lt;/dependency&gt;        &lt;dependency&gt;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;            &lt;scope&gt;test&lt;/scope&gt;            &lt;exclusions&gt;                &lt;exclusion&gt;                    &lt;groupId&gt;org.junit.vintage&lt;/groupId&gt;                    &lt;artifactId&gt;junit-vintage-engine&lt;/artifactId&gt;                &lt;/exclusion&gt;            &lt;/exclusions&gt;        &lt;/dependency&gt;    &lt;/dependencies&gt;    &lt;build&gt;        &lt;plugins&gt;            &lt;plugin&gt;                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;            &lt;/plugin&gt;        &lt;/plugins&gt;    &lt;/build&gt;&lt;/project&gt;</code></pre><h4 id="结构示意图"><a href="#结构示意图" class="headerlink" title="结构示意图"></a>结构示意图</h4><pre><code> -demo         - src              -main                     -java                         -com.ch                                -controller                                -mapper                                -model                                -service                                            -impl                                -util                                -App.java        - pom.xml</code></pre><h4 id="此演示用的SQL文件"><a href="#此演示用的SQL文件" class="headerlink" title="此演示用的SQL文件"></a>此演示用的SQL文件</h4><pre><code>/*SQLyog Ultimate v13.1.1 (64 bit)MySQL - 8.0.17 : Database - mapperdemo**********************************************************************//*!40101 SET NAMES utf8 */;/*!40101 SET SQL_MODE=&#39;&#39;*/;/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=&#39;NO_AUTO_VALUE_ON_ZERO&#39; */;/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;CREATE DATABASE /*!32312 IF NOT EXISTS*/`mapperdemo` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION=&#39;N&#39; */;USE `mapperdemo`;/*Table structure for table `user` */DROP TABLE IF EXISTS `user`;CREATE TABLE `user` (  `id` int(11) NOT NULL,  `username` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,  `password` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;/*Data for the table `user` */insert  into `user`(`id`,`username`,`password`) values (1111,&#39;admin&#39;,&#39;123456&#39;);/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;</code></pre><p>model 包下的 User 类</p><pre><code>package com.ch.model;import lombok.*;@Setter@Getter@ToString@AllArgsConstructor@NoArgsConstructorpublic class User {    private Integer id;    private String username;    private String password;}</code></pre><p>util 包下的 MyMapper 接口 <font color="red">&nbsp;&nbsp;此类不能被扫描</font></p><pre><code>package com.ch.util;import tk.mybatis.mapper.common.Mapper;import tk.mybatis.mapper.common.MySqlMapper;/** * 该类不能被扫描 * @param &lt;T&gt; */public interface MyMapper&lt;T&gt; extends Mapper&lt;T&gt;, MySqlMapper&lt;T&gt; {}</code></pre><p>mapper包下的 UserMapper 接口</p><pre><code>package com.ch.mapper;import com.ch.model.User;import com.ch.util.MyMapper;import org.apache.ibatis.annotations.Mapper;import org.springframework.stereotype.Repository;@Mapper@Repositorypublic interface UserMapper extends MyMapper&lt;User&gt; {}</code></pre><p>service包下的 UserService接口</p><pre><code>package com.ch.service;import com.ch.model.User;import java.util.List;public interface UserService {    List&lt;User&gt; selectUsers();    User selectUser(User user);}</code></pre><p>impl 包下的 UserServiceImpl 类</p><pre><code>package com.ch.service.impl;import com.ch.mapper.UserMapper;import com.ch.model.User;import com.ch.service.UserService;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Service;import java.util.List;@Servicepublic class UserServiceImpl implements UserService {    @Autowired    UserMapper mapper;    @Override    public List&lt;User&gt; selectUsers() {        return mapper.selectAll();    }    @Override    public User selectUser(User user) {        return mapper.selectOne(user);    }}</code></pre><p>controller 包下的 UserController类</p><pre><code>package com.ch.controller;import com.ch.model.User;import com.ch.service.UserService;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Controller;import org.springframework.web.bind.annotation.RequestMapping;import org.springframework.web.bind.annotation.ResponseBody;import org.springframework.web.bind.annotation.RestController;import java.util.List;@RestControllerpublic class UserController {    @Autowired    UserService service;    @RequestMapping(&quot;/selectUsers&quot;)    public List&lt;User&gt; selectUsers(){        return  service.selectUsers();    }    @RequestMapping(&quot;/selectUser&quot;)    public User selectUser(){        User user = new User();        user.setId(1111);        return service.selectUser(user);    }}</code></pre><h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><p><img src="../../../../../res/2019/11/19/2/1.jpg" alt></p><p><img src="../../../../../res/2019/11/19/2/2.jpg" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;集成通用Mapper需要的依赖&quot;&gt;&lt;a href=&quot;#集成通用Mapper需要的依赖&quot; class=&quot;headerlink&quot; title=&quot;集成通用Mapper需要的依赖&quot;&gt;&lt;/a&gt;集成通用Mapper需要的依赖&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;?xml v
+      
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="https://chsengni.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://chsengni.github.io/tags/SpringBoot/"/>
+    
+      <category term="MySQL" scheme="https://chsengni.github.io/tags/MySQL/"/>
+    
+      <category term="Mybatis" scheme="https://chsengni.github.io/tags/Mybatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker常用命令</title>
+    <link href="https://chsengni.github.io/2019/11/14/rong-qi/1/"/>
+    <id>https://chsengni.github.io/2019/11/14/rong-qi/1/</id>
+    <published>2019-11-14T13:12:35.000Z</published>
+    <updated>2019-11-16T15:39:24.429Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="创建-Docker-环境（default）"><a href="#创建-Docker-环境（default）" class="headerlink" title="创建 Docker 环境（default）"></a>创建 Docker 环境（default）</h4><pre><code>docker-machine create --driver virtualbox default</code></pre><p>或者</p><pre><code>docker-machine create -d virtualbox default</code></pre><p>或者</p><h4 id="创建网易源的-Docker-环境"><a href="#创建网易源的-Docker-环境" class="headerlink" title="创建网易源的 Docker 环境"></a>创建网易源的 Docker 环境</h4><pre><code>docker-machine create --engine-registry-mirror=http://hub-mirror.c.163.com -d virtualbox default</code></pre><h4 id="删除-Docker-环境（default）"><a href="#删除-Docker-环境（default）" class="headerlink" title="删除 Docker 环境（default）"></a>删除 Docker 环境（default）</h4><pre><code> docker-machine rm default</code></pre><h4 id="开启-Docker-环境（default）"><a href="#开启-Docker-环境（default）" class="headerlink" title="开启 Docker 环境（default）"></a>开启 Docker 环境（default）</h4><pre><code>docker-machine start default</code></pre><h4 id="关闭-Docker-环境（default）"><a href="#关闭-Docker-环境（default）" class="headerlink" title="关闭 Docker 环境（default）"></a>关闭 Docker 环境（default）</h4><pre><code>docker-machine stop default</code></pre><h4 id="重启-Docker-环境（default）"><a href="#重启-Docker-环境（default）" class="headerlink" title="重启 Docker 环境（default）"></a>重启 Docker 环境（default）</h4><pre><code>docker-machine restart default </code></pre><h4 id="查看-Docker-环境列表"><a href="#查看-Docker-环境列表" class="headerlink" title="查看 Docker 环境列表"></a>查看 Docker 环境列表</h4><pre><code>docker-machine ls</code></pre><h4 id="查看-Docker-环境版本"><a href="#查看-Docker-环境版本" class="headerlink" title="查看 Docker 环境版本"></a>查看 Docker 环境版本</h4><pre><code>docker-machine version </code></pre><h4 id="查看-Docker-环境信息-（default）"><a href="#查看-Docker-环境信息-（default）" class="headerlink" title="查看 Docker 环境信息 （default）"></a>查看 Docker 环境信息 （default）</h4><pre><code>docker-machine env default</code></pre><h4 id="进入-Docker-环境-（default）"><a href="#进入-Docker-环境-（default）" class="headerlink" title="进入 Docker 环境 （default）"></a>进入 Docker 环境 （default）</h4><pre><code>docker-machine ssh default</code></pre><h4 id="退出-Docker-环境"><a href="#退出-Docker-环境" class="headerlink" title="退出 Docker 环境"></a>退出 Docker 环境</h4><pre><code>exit</code></pre><h4 id="查看-Docker-版本"><a href="#查看-Docker-版本" class="headerlink" title="查看 Docker 版本"></a>查看 Docker 版本</h4><pre><code>docker version</code></pre><h4 id="查看所有容器（容器列表）"><a href="#查看所有容器（容器列表）" class="headerlink" title="查看所有容器（容器列表）"></a>查看所有容器（容器列表）</h4><pre><code>docker ps -a</code></pre><h4 id="搜索要下载的软件（mysql）"><a href="#搜索要下载的软件（mysql）" class="headerlink" title="搜索要下载的软件（mysql）"></a>搜索要下载的软件（mysql）</h4><pre><code>docker search mysql</code></pre><h4 id="下载安装软件-（mysql）"><a href="#下载安装软件-（mysql）" class="headerlink" title="下载安装软件 （mysql）"></a>下载安装软件 （mysql）</h4><pre><code>docker pull mysql</code></pre><h4 id="配置MySQL"><a href="#配置MySQL" class="headerlink" title="配置MySQL"></a>配置MySQL</h4><pre><code>docker run  -p 3307:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql</code></pre><h4 id="查看下载的软件"><a href="#查看下载的软件" class="headerlink" title="查看下载的软件"></a>查看下载的软件</h4><pre><code>docker images</code></pre><h4 id="删除下载的软件-IMAGE-ID"><a href="#删除下载的软件-IMAGE-ID" class="headerlink" title="删除下载的软件(IMAGE ID)"></a>删除下载的软件(IMAGE ID)</h4><pre><code>docker rmi -f  IMAGE ID</code></pre><h4 id="打开容器终端-（mysql）"><a href="#打开容器终端-（mysql）" class="headerlink" title="打开容器终端 （mysql）"></a>打开容器终端 （mysql）</h4><pre><code>docker run -i -t  mysql</code></pre><h4 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h4><pre><code>docker run -itd image_name /bin/bash</code></pre><h4 id="进入后台运行的-docker-容器-（容器ID）"><a href="#进入后台运行的-docker-容器-（容器ID）" class="headerlink" title="进入后台运行的 docker 容器 （容器ID）"></a>进入后台运行的 docker 容器 （容器ID）</h4><pre><code>docker exec -it 容器ID /bin/bash</code></pre><h4 id="启动容器（容器ID）"><a href="#启动容器（容器ID）" class="headerlink" title="启动容器（容器ID）"></a>启动容器（容器ID）</h4><pre><code>docker start 容器ID</code></pre><h4 id="停止容器（容器ID）"><a href="#停止容器（容器ID）" class="headerlink" title="停止容器（容器ID）"></a>停止容器（容器ID）</h4><pre><code>docker stop 容器ID</code></pre><h4 id="重启容器（容器ID）"><a href="#重启容器（容器ID）" class="headerlink" title="重启容器（容器ID）"></a>重启容器（容器ID）</h4><pre><code>docker restart 容器ID</code></pre><h4 id="删除容器（容器ID）"><a href="#删除容器（容器ID）" class="headerlink" title="删除容器（容器ID）"></a>删除容器（容器ID）</h4><pre><code>docker rm -f 容器ID</code></pre><h4 id="导入容器"><a href="#导入容器" class="headerlink" title="导入容器"></a>导入容器</h4><pre><code> docker import ******</code></pre><h4 id="导出容器（容器ID）"><a href="#导出容器（容器ID）" class="headerlink" title="导出容器（容器ID）"></a>导出容器（容器ID）</h4><pre><code>docker export 容器ID</code></pre><h4 id="运行Web应用（Image）"><a href="#运行Web应用（Image）" class="headerlink" title="运行Web应用（Image）"></a>运行Web应用（Image）</h4><pre><code>docker run -p 8080:8080 -t Image</code></pre><h4 id="查看端口-（容器ID）"><a href="#查看端口-（容器ID）" class="headerlink" title="查看端口 （容器ID）"></a>查看端口 （容器ID）</h4><pre><code>docker port 容器ID</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;创建-Docker-环境（default）&quot;&gt;&lt;a href=&quot;#创建-Docker-环境（default）&quot; class=&quot;headerlink&quot; title=&quot;创建 Docker 环境（default）&quot;&gt;&lt;/a&gt;创建 Docker 环境（default）&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="容器" scheme="https://chsengni.github.io/categories/%E5%AE%B9%E5%99%A8/"/>
+    
+    
+      <category term="docker" scheme="https://chsengni.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot与Layui框架</title>
@@ -343,32 +399,6 @@
   </entry>
   
   <entry>
-    <title>没有人会心疼我</title>
-    <link href="https://chsengni.github.io/2019/09/30/yin-le/1/"/>
-    <id>https://chsengni.github.io/2019/09/30/yin-le/1/</id>
-    <published>2019-09-30T05:05:35.000Z</published>
-    <updated>2019-10-04T00:07:53.602Z</updated>
-    
-    <content type="html"><![CDATA[<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="310" height="86" src="//music.163.com/outchain/player?type=2&id=1377896834&auto=0&height=66"></iframe><br><br></p><p>作曲 : 陈雪凝<br>作词 : 陈雪凝<br>没有人会心疼我<br>我在一个人的角落<br>没有人会看破<br>我眼神里最后一丝脆弱<br>没有人会心疼我<br>假话说多便成真了<br>没有人会陪我<br>陪我一起快乐</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;310&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;
-      
-    
-    </summary>
-    
-    
-      <category term="音乐" scheme="https://chsengni.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
-    
-    
-      <category term="网易云音乐" scheme="https://chsengni.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>岁月神偷</title>
     <link href="https://chsengni.github.io/2019/09/30/yin-le/3/"/>
     <id>https://chsengni.github.io/2019/09/30/yin-le/3/</id>
@@ -382,6 +412,32 @@
       
       
         &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;
+      
+    
+    </summary>
+    
+    
+      <category term="音乐" scheme="https://chsengni.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
+    
+    
+      <category term="网易云音乐" scheme="https://chsengni.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>没有人会心疼我</title>
+    <link href="https://chsengni.github.io/2019/09/30/yin-le/1/"/>
+    <id>https://chsengni.github.io/2019/09/30/yin-le/1/</id>
+    <published>2019-09-30T05:05:35.000Z</published>
+    <updated>2019-10-04T00:07:53.602Z</updated>
+    
+    <content type="html"><![CDATA[<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="310" height="86" src="//music.163.com/outchain/player?type=2&id=1377896834&auto=0&height=66"></iframe><br><br></p><p>作曲 : 陈雪凝<br>作词 : 陈雪凝<br>没有人会心疼我<br>我在一个人的角落<br>没有人会看破<br>我眼神里最后一丝脆弱<br>没有人会心疼我<br>假话说多便成真了<br>没有人会陪我<br>陪我一起快乐</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;310&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;
       
     
     </summary>
