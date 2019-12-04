@@ -21,19 +21,19 @@
     
     
     <meta name="keywords" content="SpringBoot,Thymeleaf,Druid">
-    <meta name="description" content="Druid如何跳过登录即直接进入/druid/index.html 1.错误做法 #### 很多都是这样配置的，可是并不能跳过登录   @WebServlet(urlPatterns = &amp;quot;/druid/*&amp;quot;,         initParams={                 @WebInitParam(name=&amp;quot;allow&amp;quot;,value=&amp;quo">
+    <meta name="description" content="Druid如何跳过登录即直接进入/druid/index.html 1.错误做法 很多都是这样配置的，可是并不能跳过登录   @WebServlet(urlPatterns = &amp;quot;/druid/*&amp;quot;,         initParams={                 @WebInitParam(name=&amp;quot;allow&amp;quot;,value=&amp;quot;127">
 <meta name="keywords" content="SpringBoot,Thymeleaf,Druid">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot集成Druid自动登录">
 <meta property="og:url" content="https://chsengni.github.io/2019/12/04/hou-duan/3/index.html">
 <meta property="og:site_name" content="陈增林">
-<meta property="og:description" content="Druid如何跳过登录即直接进入/druid/index.html 1.错误做法 #### 很多都是这样配置的，可是并不能跳过登录   @WebServlet(urlPatterns = &amp;quot;/druid/*&amp;quot;,         initParams={                 @WebInitParam(name=&amp;quot;allow&amp;quot;,value=&amp;quo">
+<meta property="og:description" content="Druid如何跳过登录即直接进入/druid/index.html 1.错误做法 很多都是这样配置的，可是并不能跳过登录   @WebServlet(urlPatterns = &amp;quot;/druid/*&amp;quot;,         initParams={                 @WebInitParam(name=&amp;quot;allow&amp;quot;,value=&amp;quot;127">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://chsengni.github.io/res/2019/12/4/3/1.gif">
-<meta property="og:updated_time" content="2019-12-04T06:01:07.635Z">
+<meta property="og:updated_time" content="2019-12-04T06:06:10.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot集成Druid自动登录">
-<meta name="twitter:description" content="Druid如何跳过登录即直接进入/druid/index.html 1.错误做法 #### 很多都是这样配置的，可是并不能跳过登录   @WebServlet(urlPatterns = &amp;quot;/druid/*&amp;quot;,         initParams={                 @WebInitParam(name=&amp;quot;allow&amp;quot;,value=&amp;quo">
+<meta name="twitter:description" content="Druid如何跳过登录即直接进入/druid/index.html 1.错误做法 很多都是这样配置的，可是并不能跳过登录   @WebServlet(urlPatterns = &amp;quot;/druid/*&amp;quot;,         initParams={                 @WebInitParam(name=&amp;quot;allow&amp;quot;,value=&amp;quot;127">
 <meta name="twitter:image" content="https://chsengni.github.io/res/2019/12/4/3/1.gif">
     
         <link rel="alternate" type="application/atom+xml" title="陈增林" href="/atom.xml">
@@ -170,7 +170,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>预览</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Druid如何跳过登录"><span class="post-toc-text">Druid如何跳过登录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-错误做法"><span class="post-toc-text">1.错误做法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-正确做法"><span class="post-toc-text">2.正确做法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#最后GIF展示"><span class="post-toc-text">最后GIF展示</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Druid如何跳过登录"><span class="post-toc-text">Druid如何跳过登录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-错误做法"><span class="post-toc-text">1.错误做法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-正确做法"><span class="post-toc-text">2.正确做法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-最后GIF展示"><span class="post-toc-text">3.最后GIF展示</span></a></li></ol>
         </nav>
     </aside>
 
@@ -197,9 +197,9 @@
             
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="Druid如何跳过登录"><a href="#Druid如何跳过登录" class="headerlink" title="Druid如何跳过登录"></a>Druid如何跳过登录</h2><p><em>即直接进入/druid/index.html</em></p>
+            <h3 id="Druid如何跳过登录"><a href="#Druid如何跳过登录" class="headerlink" title="Druid如何跳过登录"></a>Druid如何跳过登录</h3><p><em>即直接进入/druid/index.html</em></p>
 <h3 id="1-错误做法"><a href="#1-错误做法" class="headerlink" title="1.错误做法"></a>1.错误做法</h3><font color="red">
-#### 很多都是这样配置的，可是并不能跳过登录
+很多都是这样配置的，可是并不能跳过登录
 </font>
 
 <pre><code>@WebServlet(urlPatterns = &quot;/druid/*&quot;,
@@ -215,7 +215,7 @@ public class DruidStatViewServlet extends StatViewServlet {
 </code></pre><p>Application.java </p>
 <pre><code>@ServletComponentScan
 </code></pre><h3 id="2-正确做法"><a href="#2-正确做法" class="headerlink" title="2.正确做法"></a>2.正确做法</h3><font color="steelblue">
-#### druid自带的登录时的ajax请求源码
+druid自带的登录时的ajax请求源码
 </font>
 
 <pre><code>      $.namespace(&quot;druid.login&quot;);
@@ -245,7 +245,7 @@ public class DruidStatViewServlet extends StatViewServlet {
      });
 </code></pre><p>通过源码可以发现 ajax 提交到 submitLogin,返回值是 success 就是登录成功</p>
 <font color="darkblue">
-#### 一般都是用于菜单栏</font><font color="red">（注意*）
+一般都是用于菜单栏</font><font color="red">（注意*）
 </font>
 
 <p>1.通常，当我们点击菜单的某一项时，发出请求，请求的是/druid/login.html</p>
@@ -382,7 +382,7 @@ public class DruidLoginFilter implements Filter {
     //放行...
     chain.doFilter(request,response);
   }
-</code></pre><h4 id="最后GIF展示"><a href="#最后GIF展示" class="headerlink" title="最后GIF展示"></a>最后GIF展示</h4><figure class="image-bubble">
+</code></pre><h3 id="3-最后GIF展示"><a href="#3-最后GIF展示" class="headerlink" title="3.最后GIF展示"></a>3.最后GIF展示</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="../../../../../res/2019/12/4/3/1.gif" alt title>
@@ -398,7 +398,7 @@ public class DruidLoginFilter implements Filter {
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-04T06:01:07.635Z" itemprop="dateUpdated">2019-12-04 14:01:07</time>
+    最后更新时间：<time datetime="2019-12-04T06:06:10.698Z" itemprop="dateUpdated">2019-12-04 14:06:10</time>
 </span><br>
 
 
