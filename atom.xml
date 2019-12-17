@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chsengni.github.io/"/>
-  <updated>2019-12-04T06:06:10.698Z</updated>
+  <updated>2019-12-17T08:10:37.049Z</updated>
   <id>https://chsengni.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web前端框架集合</title>
+    <link href="https://chsengni.github.io/2019/12/17/qian-duan/6/"/>
+    <id>https://chsengni.github.io/2019/12/17/qian-duan/6/</id>
+    <published>2019-12-17T08:06:37.000Z</published>
+    <updated>2019-12-17T08:10:37.049Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Web前端框架集合"><a href="#Web前端框架集合" class="headerlink" title="Web前端框架集合"></a>Web前端框架集合</h2><font style="font-size:24px;">- 1. layui          [http://www.layui.com/](http://www.layui.com/) - 2. h-ui           [http://www.h-ui.net/](http://www.h-ui.net/)- 3. weui              [https://weui.io/](https://weui.io/)- 4. sui               [http://sui.taobao.org/](http://sui.taobao.org/)- 5. msui               [http://m.sui.taobao.org/](http://m.sui.taobao.org/)- 6. frozenui        [http://frozenui.github.io/](http://frozenui.github.io/)- 7. uikit           [http://www.getuikit.net/](http://www.getuikit.net/) - 8. ydui           [http://www.ydui.org/](http://www.ydui.org/)- 9. jui            [http://jui.org/](http://jui.org/)   - 10.ligerui        [http://www.ligerui.com/index.htm](http://www.ligerui.com/index.htm)- 11. easyui        [http://www.jeasyui.com/](http://www.jeasyui.com/)- 12. miniui        [http://miniui.com/](http://miniui.com/)- 13. pintuer       [http://www.pintuer.com/](http://www.pintuer.com/)- 14. mui           [https://dev.dcloud.net.cn/mui/](https://dev.dcloud.net.cn/mui/)- 15. mint          [https://mint-ui.github.io/#!/zh-cn](https://mint-ui.github.io/#!/zh-cn)- 16. viewui        [https://www.iviewui.com/](https://www.iviewui.com/)- 17. elementui     [http://element-cn.eleme.io/#/zh-CN](http://element-cn.eleme.io/#/zh-CN)</font>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Web前端框架集合&quot;&gt;&lt;a href=&quot;#Web前端框架集合&quot; class=&quot;headerlink&quot; title=&quot;Web前端框架集合&quot;&gt;&lt;/a&gt;Web前端框架集合&lt;/h2&gt;&lt;font style=&quot;font-size:24px;&quot;&gt;
+
+- 1. layui   
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://chsengni.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="框架" scheme="https://chsengni.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="精美" scheme="https://chsengni.github.io/tags/%E7%B2%BE%E7%BE%8E/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot集成Druid自动登录</title>
