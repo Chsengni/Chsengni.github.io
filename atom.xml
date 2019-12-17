@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chsengni.github.io/"/>
-  <updated>2019-12-17T08:17:26.352Z</updated>
+  <updated>2019-12-17T08:22:02.970Z</updated>
   <id>https://chsengni.github.io/</id>
   
   <author>
@@ -21,17 +21,16 @@
     <link href="https://chsengni.github.io/2019/12/17/qian-duan/6/"/>
     <id>https://chsengni.github.io/2019/12/17/qian-duan/6/</id>
     <published>2019-12-17T08:06:37.000Z</published>
-    <updated>2019-12-17T08:17:26.352Z</updated>
+    <updated>2019-12-17T08:22:02.970Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Web前端框架集合"><a href="#Web前端框架集合" class="headerlink" title="Web前端框架集合"></a>Web前端框架集合</h2><ul><li><ol><li>layui          <a href="http://www.layui.com/" target="_blank" rel="noopener">http://www.layui.com/</a> </li></ol></li><li><ol><li>h-ui           <a href="http://www.h-ui.net/" target="_blank" rel="noopener">http://www.h-ui.net/</a></li></ol></li><li><ol><li>weui              <a href="https://weui.io/" target="_blank" rel="noopener">https://weui.io/</a></li></ol></li><li><ol><li>sui               <a href="http://sui.taobao.org/" target="_blank" rel="noopener">http://sui.taobao.org/</a></li></ol></li><li><ol><li>msui               <a href="http://m.sui.taobao.org/" target="_blank" rel="noopener">http://m.sui.taobao.org/</a></li></ol></li><li><ol><li>frozenui        <a href="http://frozenui.github.io/" target="_blank" rel="noopener">http://frozenui.github.io/</a></li></ol></li><li><ol><li>uikit           <a href="http://www.getuikit.net/" target="_blank" rel="noopener">http://www.getuikit.net/</a> </li></ol></li><li><ol><li>ydui           <a href="http://www.ydui.org/" target="_blank" rel="noopener">http://www.ydui.org/</a></li></ol></li><li><ol><li>jui            <a href="http://jui.org/" target="_blank" rel="noopener">http://jui.org/</a>   </li></ol></li><li>10.ligerui        <a href="http://www.ligerui.com/index.htm" target="_blank" rel="noopener">http://www.ligerui.com/index.htm</a></li><li><ol><li>easyui        <a href="http://www.jeasyui.com/" target="_blank" rel="noopener">http://www.jeasyui.com/</a></li></ol></li><li><ol><li>miniui        <a href="http://miniui.com/" target="_blank" rel="noopener">http://miniui.com/</a></li></ol></li><li><ol><li>pintuer       <a href="http://www.pintuer.com/" target="_blank" rel="noopener">http://www.pintuer.com/</a></li></ol></li><li><ol><li>mui           <a href="https://dev.dcloud.net.cn/mui/" target="_blank" rel="noopener">https://dev.dcloud.net.cn/mui/</a></li></ol></li><li><ol><li>mint          <a href="https://mint-ui.github.io/#!/zh-cn" target="_blank" rel="noopener">https://mint-ui.github.io/#!/zh-cn</a></li></ol></li><li><ol><li>viewui        <a href="https://www.iviewui.com/" target="_blank" rel="noopener">https://www.iviewui.com/</a></li></ol></li><li><ol><li>elementui     <a href="http://element-cn.eleme.io/#/zh-CN" target="_blank" rel="noopener">http://element-cn.eleme.io/#/zh-CN</a></li></ol></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Web前端框架集合"><a href="#Web前端框架集合" class="headerlink" title="Web前端框架集合"></a>Web前端框架集合</h2><ul><li>layui          <a href="http://www.layui.com/" target="_blank" rel="noopener">http://www.layui.com/</a> </li><li>h-ui           <a href="http://www.h-ui.net/" target="_blank" rel="noopener">http://www.h-ui.net/</a></li><li>weui              <a href="https://weui.io/" target="_blank" rel="noopener">https://weui.io/</a></li><li>sui               <a href="http://sui.taobao.org/" target="_blank" rel="noopener">http://sui.taobao.org/</a></li><li>msui               <a href="http://m.sui.taobao.org/" target="_blank" rel="noopener">http://m.sui.taobao.org/</a></li><li>frozenui        <a href="http://frozenui.github.io/" target="_blank" rel="noopener">http://frozenui.github.io/</a></li><li>uikit           <a href="http://www.getuikit.net/" target="_blank" rel="noopener">http://www.getuikit.net/</a> </li><li>ydui           <a href="http://www.ydui.org/" target="_blank" rel="noopener">http://www.ydui.org/</a></li><li>jui            <a href="http://jui.org/" target="_blank" rel="noopener">http://jui.org/</a>   </li><li>ligerui        <a href="http://www.ligerui.com/index.htm" target="_blank" rel="noopener">http://www.ligerui.com/index.htm</a></li><li>easyui       <a href="http://www.jeasyui.com/" target="_blank" rel="noopener">http://www.jeasyui.com/</a></li><li>miniui        <a href="http://miniui.com/" target="_blank" rel="noopener">http://miniui.com/</a></li><li>pintuer       <a href="http://www.pintuer.com/" target="_blank" rel="noopener">http://www.pintuer.com/</a></li><li>mui           <a href="https://dev.dcloud.net.cn/mui/" target="_blank" rel="noopener">https://dev.dcloud.net.cn/mui/</a></li><li>mint          <a href="https://mint-ui.github.io/#!/zh-cn" target="_blank" rel="noopener">https://mint-ui.github.io/#!/zh-cn</a></li><li>viewui        <a href="https://www.iviewui.com/" target="_blank" rel="noopener">https://www.iviewui.com/</a></li><li>elementui     <a href="http://element-cn.eleme.io/#/zh-CN" target="_blank" rel="noopener">http://element-cn.eleme.io/#/zh-CN</a></li></ul>]]></content>
     
     <summary type="html">
     
       
       
         &lt;h2 id=&quot;Web前端框架集合&quot;&gt;&lt;a href=&quot;#Web前端框架集合&quot; class=&quot;headerlink&quot; title=&quot;Web前端框架集合&quot;&gt;&lt;/a&gt;Web前端框架集合&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;layui          &lt;a href=&quot;htt
+&lt;li&gt;layui          &lt;a href=&quot;http://www.l
       
     
     </summary>
@@ -461,32 +460,6 @@
   </entry>
   
   <entry>
-    <title>岁月神偷</title>
-    <link href="https://chsengni.github.io/2019/09/30/yin-le/3/"/>
-    <id>https://chsengni.github.io/2019/09/30/yin-le/3/</id>
-    <published>2019-09-30T05:05:35.000Z</published>
-    <updated>2019-10-04T00:08:17.398Z</updated>
-    
-    <content type="html"><![CDATA[<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28285910&auto=0&height=66"></iframe><br><br></p><p>歌手：金玟岐<br>所属专辑：金玟岐作品集<br>能够握紧的就别放了<br>能够拥抱的就别拉扯<br>时间着急的<br>冲刷着<br>剩下了什么<br>原谅走过的那些曲折<br>原来留下的都是真的<br>纵然似梦啊 半醒着<br>笑着哭着都快活<br>谁让<br>时间是让人猝不及防的东西<br>晴时有风阴有时雨<br>争不过朝夕<br>又念着往昔<br>偷走了青丝却留住一个你<br>岁月是一场有去无回的旅行<br>好的坏的都是风景<br>别怪我贪心<br>只是不愿醒<br>因为你只为你愿和我一起<br>看云淡风轻</p><p>时间是让人猝不及防的东西<br>晴时有风阴有时雨<br>争不过朝夕<br>又念着往昔<br>偷走了青丝却留住一个你<br>岁月是一场有去无回的旅行<br>好的坏的都是风景<br>别怪我贪心<br>只是不愿醒<br>因为你只为你愿和我一起<br>看云淡风轻</p><p>吉他：薛峰<br>贝斯：郑骅骅<br>打击乐：王斌</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;
-      
-    
-    </summary>
-    
-    
-      <category term="音乐" scheme="https://chsengni.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
-    
-    
-      <category term="网易云音乐" scheme="https://chsengni.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>没有人会心疼我</title>
     <link href="https://chsengni.github.io/2019/09/30/yin-le/1/"/>
     <id>https://chsengni.github.io/2019/09/30/yin-le/1/</id>
@@ -500,6 +473,32 @@
       
       
         &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;310&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;
+      
+    
+    </summary>
+    
+    
+      <category term="音乐" scheme="https://chsengni.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
+    
+    
+      <category term="网易云音乐" scheme="https://chsengni.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>岁月神偷</title>
+    <link href="https://chsengni.github.io/2019/09/30/yin-le/3/"/>
+    <id>https://chsengni.github.io/2019/09/30/yin-le/3/</id>
+    <published>2019-09-30T05:05:35.000Z</published>
+    <updated>2019-10-04T00:08:17.398Z</updated>
+    
+    <content type="html"><![CDATA[<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28285910&auto=0&height=66"></iframe><br><br></p><p>歌手：金玟岐<br>所属专辑：金玟岐作品集<br>能够握紧的就别放了<br>能够拥抱的就别拉扯<br>时间着急的<br>冲刷着<br>剩下了什么<br>原谅走过的那些曲折<br>原来留下的都是真的<br>纵然似梦啊 半醒着<br>笑着哭着都快活<br>谁让<br>时间是让人猝不及防的东西<br>晴时有风阴有时雨<br>争不过朝夕<br>又念着往昔<br>偷走了青丝却留住一个你<br>岁月是一场有去无回的旅行<br>好的坏的都是风景<br>别怪我贪心<br>只是不愿醒<br>因为你只为你愿和我一起<br>看云淡风轻</p><p>时间是让人猝不及防的东西<br>晴时有风阴有时雨<br>争不过朝夕<br>又念着往昔<br>偷走了青丝却留住一个你<br>岁月是一场有去无回的旅行<br>好的坏的都是风景<br>别怪我贪心<br>只是不愿醒<br>因为你只为你愿和我一起<br>看云淡风轻</p><p>吉他：薛峰<br>贝斯：郑骅骅<br>打击乐：王斌</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;
       
     
     </summary>
