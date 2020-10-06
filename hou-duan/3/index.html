@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SpringBoot集成Druid自动登录 | 陈增林 | Chsengni</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="SpringBoot,Thymeleaf,Druid">
+    <meta name="description" content="Druid如何跳过登录即直接进入/druid/index.html 1.错误做法 很多都是这样配置的，可是并不能跳过登录   @WebServlet(urlPatterns = &amp;quot;/druid/*&amp;quot;,         initParams={                 @WebInitParam(name=&amp;quot;allow&amp;quot;,value=&amp;quot;127">
+<meta name="keywords" content="SpringBoot,Thymeleaf,Druid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot集成Druid自动登录">
+<meta property="og:url" content="https://chsengni.github.io/hou-duan/3/index.html">
+<meta property="og:site_name" content="陈增林">
+<meta property="og:description" content="Druid如何跳过登录即直接进入/druid/index.html 1.错误做法 很多都是这样配置的，可是并不能跳过登录   @WebServlet(urlPatterns = &amp;quot;/druid/*&amp;quot;,         initParams={                 @WebInitParam(name=&amp;quot;allow&amp;quot;,value=&amp;quot;127">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://chsengni.github.io/res/2019/12/4/3/1.gif">
+<meta property="og:updated_time" content="2019-12-04T06:06:10.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringBoot集成Druid自动登录">
+<meta name="twitter:description" content="Druid如何跳过登录即直接进入/druid/index.html 1.错误做法 很多都是这样配置的，可是并不能跳过登录   @WebServlet(urlPatterns = &amp;quot;/druid/*&amp;quot;,         initParams={                 @WebInitParam(name=&amp;quot;allow&amp;quot;,value=&amp;quot;127">
+<meta name="twitter:image" content="https://chsengni.github.io/res/2019/12/4/3/1.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="陈增林" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link href="/css/prism/prism-tomorrow-night.css" rel="stylesheet">
+    <script>window.lazyScripts=[]</script>
+	<style>
+		.article-tag-list-link{
+			text-decoration:none !important;
+		}
+		.post-more{
+			
+		}
+		
+		header{
+			background-color:steelblue !important;
+		}
+		
+	
+		#gotop{
+			background-color:steelblue !important;
+		}
+		
+		#gobottom{
+			background-color:steelblue !important;
+		}
+		
+		.post-content{
+			color:gray;
+			font-size:15px;
+		}
+		.post-title-link{
+			color:#666666 !important;
+			font-size:20px;
+		}
+	</style>
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-list-ul"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/back_blue.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/fong.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">陈增林</h5>
+          <a href="mailto:2371778707@qq.com" title="2371778707@qq.com" class="mail">2371778707@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-folder-open"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives/"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/web/"  >
+                <i class="icon icon-lg icon-bookmark"></i>
+                网站
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SpringBoot集成Druid自动登录</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SpringBoot集成Druid自动登录</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-04T04:50:32.000Z" itemprop="datePublished" class="page-time">
+  2019-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/后端/">后端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>预览</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Druid如何跳过登录"><span class="post-toc-text">Druid如何跳过登录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-错误做法"><span class="post-toc-text">1.错误做法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-正确做法"><span class="post-toc-text">2.正确做法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-最后GIF展示"><span class="post-toc-text">3.最后GIF展示</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-后端/3"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SpringBoot集成Druid自动登录</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-04 12:50:32" datetime="2019-12-04T04:50:32.000Z"  itemprop="datePublished">2019-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/后端/">后端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章阅读总量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="Druid如何跳过登录"><a href="#Druid如何跳过登录" class="headerlink" title="Druid如何跳过登录"></a>Druid如何跳过登录</h3><p><em>即直接进入/druid/index.html</em></p>
+<h3 id="1-错误做法"><a href="#1-错误做法" class="headerlink" title="1.错误做法"></a>1.错误做法</h3><font color="red">
+很多都是这样配置的，可是并不能跳过登录
+</font>
+
+<pre><code>@WebServlet(urlPatterns = &quot;/druid/*&quot;,
+        initParams={
+                @WebInitParam(name=&quot;allow&quot;,value=&quot;127.0.0.1&quot;),// IP白名单 (没有配置或者为空，则允许所有访问)
+                @WebInitParam(name=&quot;deny&quot;,value=&quot;&quot;),// IP黑名单 (存在共同时，deny优先于allow)
+                @WebInitParam(name=&quot;loginUsername&quot;,value=&quot;root&quot;),// 用户名
+                @WebInitParam(name=&quot;loginPassword&quot;,value=&quot;root&quot;),// 密码
+                @WebInitParam(name=&quot;resetEnable&quot;,value=&quot;false&quot;)// 禁用HTML页面上的“Reset All”功能
+        })
+public class DruidStatViewServlet extends StatViewServlet {
+}
+</code></pre><p>Application.java </p>
+<pre><code>@ServletComponentScan
+</code></pre><h3 id="2-正确做法"><a href="#2-正确做法" class="headerlink" title="2.正确做法"></a>2.正确做法</h3><font color="steelblue">
+druid自带的登录时的ajax请求源码
+</font>
+
+<pre><code>      $.namespace(&quot;druid.login&quot;);
+       druid.login = function () {  
+           return  {
+              login : function() {
+                  $.ajax({
+                    type: &#39;POST&#39;,
+                    url: &quot;submitLogin&quot;,
+                    data: $(&quot;#loginForm&quot;).serialize(),
+                    success: function(data) {
+                      if(&quot;success&quot; == data)
+                          location.href = &quot;index.html&quot;;
+                      else {
+                          $(&quot;#alertInfo&quot;).show();
+                          $(&quot;#loginForm&quot;)[0].reset();
+                      }
+                    },
+                    dataType: &quot;text&quot;
+                  });
+              }
+           }
+      }();
+
+      $(document).ready(function() {
+          $(&quot;#loginBtn&quot;).click(druid.login.login);
+     });
+</code></pre><p>通过源码可以发现 ajax 提交到 submitLogin,返回值是 success 就是登录成功</p>
+<font color="darkblue">
+一般都是用于菜单栏</font><font color="red">（注意*）
+</font>
+
+<p>1.通常，当我们点击菜单的某一项时，发出请求，请求的是/druid/login.html</p>
+<p>2.现在我们需要将菜单点击后发出一个新的请求，例如：/toDruidLogin</p>
+<p>3.在IndexController里面拦截请求 /toDruidLogin</p>
+<p><em>code</em>：</p>
+<pre><code>@RequestMapping(&quot;/toDruidLogin&quot;)
+public String toDruidLogin(HttpSession session){
+    if (session.getAttribute(&quot;user&quot;)!=null){
+        return &quot;druidlogin&quot;;
+    }
+    return &quot;redirect:/login&quot;;
+}    
+</code></pre><p>4.新建对应页面，例如druidlogin.html</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; th:href=&quot;@{/layui/css/layui.css}&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--jquery.min--&gt;
+&lt;script th:src=&quot;@{https://code.jquery.com/jquery-3.4.1.min.js}&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script th:src=&quot;@{/layui/layui.js}&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    layui.use([&#39;layer&#39;,&#39;element&#39;], function() {
+        $(function () {
+            autoLogin();
+        })
+
+        /** 自动登录 @author gaoyuan */
+        function autoLogin() {
+            var loadingLayer = layer.load(1, {shade: [0.1, &#39;#fff&#39;]});//loading
+            $.ajax({
+                type: &#39;get&#39;,
+                url: &#39;/doDruidLogin&#39;,
+                dataType: &quot;text&quot;,
+                data: {},
+                success: function (data) {
+                    layer.close(loadingLayer);
+                    if (data == &quot;success&quot;) {
+                        location.href = &quot;/druid&quot;;
+                    } else {
+                        layer.msg(&#39;自动登录出错，请手动登录！&#39;, {icon: 2}, function () {
+                            location.href = &quot;/druid&quot;;
+                        });
+                    }
+                }, error: function () {
+                    layer.close(loadingLayer);
+                }
+            });
+        }
+    });
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>5.模拟druid的自带的ajax请求，请求 /doDruidLogin</p>
+<p><em>全部代码如上</em> </p>
+<pre><code>$.ajax({
+    type: &#39;get&#39;,
+    url: &#39;/doDruidLogin&#39;,
+    dataType: &quot;text&quot;,
+    data: {},
+    success: function (data) {
+        if (data == &quot;success&quot;) {
+            location.href = &quot;/druid&quot;;
+        }
+    }
+});
+</code></pre><p>6.在IndexController里面拦截请求 /doDruidLogin </p>
+<p>此处随意写，过滤后不会执行，但必须要拦截/doDruidLogin，否则会保错</p>
+<pre><code>@RequestMapping(&quot;/doDruidLogin&quot;)
+public String doDruidLogin(HttpSession session){
+    if (session.getAttribute(&quot;user&quot;)!=null){
+        return &quot;/&quot;; 
+    }
+    return &quot;redirect:/login&quot;;
+}
+</code></pre><p>7.最重要一点Filter</p>
+<pre><code>@Configuration
+@WebFilter(filterName = &quot;moni&quot;,urlPatterns = &quot;/doDruidLogin&quot;)
+public class DruidLoginFilter implements Filter {
+    private static final Logger log = LoggerFactory.getLogger(DruidLoginFilter.class);
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        log.info(&quot;DruidLoginFilter初始化&quot;);
+    }
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = ((HttpServletResponse) servletResponse);
+        String requestUrl = request.getRequestURL().toString();
+        //log.info(requestUrl);
+        // 针对druid做自动登录
+        if(requestUrl.contains(&quot;/doDruidLogin&quot;)){
+            String queryString = &quot;loginUsername=root&amp;loginPassword=root&quot;;
+            // 获取完整路径
+          //  log.info(&quot;=====&quot;+requestUrl);
+            StringBuffer url = new StringBuffer(requestUrl);
+            // 获取路径加上项目名称
+            String tempContextUrl = url.delete(url.length() - request.getRequestURI().length(), url.length()).append(request.getServletContext().getContextPath()).append(&quot;/&quot;).toString();
+          //  log.info(tempContextUrl);
+            /** 构造新地址，其实就是druid的登录地址 */
+            URL newUrl = new URL(tempContextUrl + &quot;druid/submitLogin?&quot; + queryString);
+           // log.info(newUrl.toString());
+            response.setStatus(307);
+            response.setHeader(&quot;Location&quot;, newUrl.toString());
+            response.setHeader(&quot;Connection&quot;, &quot;close&quot;);
+            //允许所有跨域请求
+            response.addHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
+        }else {
+            chain.doFilter(request,response);
+        }
+
+    }
+
+    @Override
+    public void destroy() {
+        log.info(&quot;DruidLoginFilter销毁&quot;);
+    }
+}
+</code></pre><p>doFilter里面判断请求链接是否包含 /doDruidLogin</p>
+<pre><code>  if(requestUrl.contains(&quot;/doDruidLogin&quot;)){
+        //将参数拼接到 一个Url
+        //状态码307 要求浏览器继续向 Location 的地址 POST 内容。
+         response.setStatus(307);
+        response.setHeader(&quot;Location&quot;, newUrl.toString());
+        response.setHeader(&quot;Connection&quot;, &quot;close&quot;);
+        //所以会跳转到 /druid/index.html
+  }else{
+    //放行...
+    chain.doFilter(request,response);
+  }
+</code></pre><h3 id="3-最后GIF展示"><a href="#3-最后GIF展示" class="headerlink" title="3.最后GIF展示"></a>3.最后GIF展示</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="../../../../../res/2019/12/4/3/1.gif" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>此篇完！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-12-04T06:06:10.698Z" itemprop="dateUpdated">2019-12-04 14:06:10</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://chsengni.github.io">
+            <img src="/img/fong.jpg" alt="陈增林">
+            陈增林
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:a();" class="page-reward-btn waves-effect waves-circle waves-light">支持</a>
+</div>
+<!--
+<script>
+	function a(){ 
+			var procbg = document.createElement("div"); //首先创建一个div
+			procbg.setAttribute("id", "mybg"); //定义该div的id
+			procbg.style.background = "#808080";
+			procbg.style.width = "100%";
+			procbg.style.height = "100%";
+			procbg.style.position = "fixed";
+			procbg.style.top = "0";
+			procbg.style.left = "0";
+			procbg.style.zIndex = "500";
+			procbg.style.opacity = "0.2";
+			procbg.style.filter = "Alpha(opacity=70)";
+			document.body.appendChild(procbg);
+			//document.body.style.overflow = "hidden"; //取消滚动条
+	
+	}
+
+</script>
+-->
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Druid/">Druid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thymeleaf/">Thymeleaf</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chsengni.github.io/hou-duan/3/&title=《SpringBoot集成Druid自动登录》 — 陈增林&pic=https://chsengni.github.io/img/fong.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chsengni.github.io/hou-duan/3/&title=《SpringBoot集成Druid自动登录》 — 陈增林&source=一个专注IT技术发展的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chsengni.github.io/hou-duan/3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SpringBoot集成Druid自动登录》 — 陈增林&url=https://chsengni.github.io/hou-duan/3/&via=https://chsengni.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chsengni.github.io/hou-duan/3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/qian-duan/6/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一页</div>
+        <h4 class="title">Web前端框架集合</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/hou-duan/2/" id="post-next" class="post-nav-link">
+        <div class="tips">下一页 <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SpringBoot集成通用 mapper</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+            var id = location.pathname
+            if (location.pathname.length > 50) {
+              id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+            }
+            const gitalk = new Gitalk({
+              clientID: 'ecf207fbd3dcbf960136',
+              clientSecret: '3e224efe9d9563b85c779fa10be44dd8cfa0d90f',
+              repo: 'gitalk',
+              owner: 'Chsengni',
+              admin: ['Chsengni'],
+              id: id,      // Ensure uniqueness and length less than 50
+              title: document.title.split('|')[0],
+              distractionFreeMode: false  // Facebook-like distraction free mode
+            })
+            gitalk.render('gitalk-container')
+        </script>
+    </section>
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢支持~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-item switch">切换</span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+    </main>
+	<footer class="footer">
+	
+    <div class="bottom">
+		<p>
+			
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点访客总数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点访问总量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+		</p>
+        <p>
+            <span>
+                陈增林 &copy;
+                    
+                        2019 -
+                            
+                                2020
+            </span>
+            <span>
+				  Hosted by <a href="https://pages.github.com/" style="font-weight: bold">Github Pages</a>
+			</span>
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<a href="javascript:;" id="gobottom" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-comments"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chsengni.github.io/hou-duan/3/&title=《SpringBoot集成Druid自动登录》 — 陈增林&pic=https://chsengni.github.io/img/fong.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chsengni.github.io/hou-duan/3/&title=《SpringBoot集成Druid自动登录》 — 陈增林&source=一个专注IT技术发展的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chsengni.github.io/hou-duan/3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SpringBoot集成Druid自动登录》 — 陈增林&url=https://chsengni.github.io/hou-duan/3/&via=https://chsengni.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chsengni.github.io/hou-duan/3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxUlEQVR42u3ay46DMAwF0P7/TzNbRhXo2iYZRjpZVX3QExZWrs3nE6/jtM7vfH96fv/7m1dXe3jh4uKOucftusLdoxPc/YYvt4SLi7uRe1UxklJ1X+yS6yQGXFzcN3OrZSgvZLi4uP+Rm9DnUQoXF/c93CT8VNF5HFqS1XBxcQfcvPSse72kv4uLi9viHuOVbG8Sln79Fy4u7hZub0xSbXomB6DC4QkXF3cxtzcamQSnyRgGFxd3DzfJF/esvOQlR59yKMLFxV3Arf44h1bvU7RJXFzcLdz8B9Xhax51mlvFxcVdzM3jSrKl5eEHFxd3I7faxOw1PXslEhcXdye32u6sHobyRzajoQ4uLu5Gbj4WTYpXYRDSK2S4uLhbuHkgyRsZ8/Bz+ZwILi7uYu7kwJG3RSYx6bHzES4ubqv3OHnCIT/WVMeuo5kwLi7uIFn0WpnzMWpz3IuLi7uYexTXJBRVDz2FfeDi4j7KnQw/Vo9UR2hcXNwxt1q8ekWnuiVcXNw3cMsjz2LLoxd+cHFx38/tla3e0KV8V3Bxcf+Im49L87BUfvgDFxd3I3fSJJ2vpMmCi4u7kzu/3GSgMj9O4eLiPsr9AQhCBhy70zcqAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+<script type="text/javascript" src="/./js/love.js">
+
+    <script src="//cdn.jsdelivr.net/npm/node-waves@0.7.6/src/js/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script src="/js/prism.js"></script>
+<script src="/js/prism-vim.js"></script>
+	
+</body>
+</html>

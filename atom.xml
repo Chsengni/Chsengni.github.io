@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chsengni.github.io/"/>
-  <updated>2019-12-17T08:22:02.970Z</updated>
+  <updated>2019-10-12T04:39:26.320Z</updated>
   <id>https://chsengni.github.io/</id>
   
   <author>
@@ -14,12 +14,41 @@
     
   </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>提升编程效率-Sublime Text 3 激活</title>
+    <link href="https://chsengni.github.io/qian-duan/4/"/>
+    <id>https://chsengni.github.io/qian-duan/4/</id>
+    <published>2020-04-17T22:45:33.238Z</published>
+    <updated>2019-10-12T04:39:26.320Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Sublime Text 3.2.1 -Build 3207</strong></p><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>这款软件具有良好的UI风格，丰富的插件，全面的代码提示功能，使用起来可以提升编程效率。</p><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>链接: <a href="https://pan.baidu.com/s/12sm7DUzfYDXOJvOMHrOrQg" target="_blank" rel="noopener">https://pan.baidu.com/s/12sm7DUzfYDXOJvOMHrOrQg</a> 提取码: afr7  （10.3MB）包含破解补丁</p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011143233.png"></p><h3 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h3><p>1、安装 Package Control</p><h4 id="第一步：按住-Ctrl-键-调出-sublime-的控制台；"><a href="#第一步：按住-Ctrl-键-调出-sublime-的控制台；" class="headerlink" title="第一步：按住 Ctrl + ~ 键,调出 sublime 的控制台；"></a>第一步：按住 Ctrl + ~ 键,调出 sublime 的控制台；</h4><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011145916.png"></p><h4 id="第二步：在调出的控制台输入如下指令"><a href="#第二步：在调出的控制台输入如下指令" class="headerlink" title="第二步：在调出的控制台输入如下指令"></a>第二步：在调出的控制台输入如下指令</h4><pre>import urllib.request,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),'wb').write(urllib.request.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())</pre><p>回车，稍等一会，因为在下载文件所以非常卡，不要动等它下完，如果在 Preferences 里有 Package Control 就说明安装成功了；</p><h4 id="第三步：点击菜单-Preferences-N-—-gt-Package-Control"><a href="#第三步：点击菜单-Preferences-N-—-gt-Package-Control" class="headerlink" title="第三步：点击菜单 Preferences(N) —&gt; Package Control"></a>第三步：点击菜单 Preferences(N) —&gt; Package Control</h4><p>或者使用快捷键 Ctrl + Shift + P调出 Package Control，输入Install Package 选择并回车，查找ChineseLocalization插件，选择回车安装成功后会自动切换成中文简体，可以在帮助 —&gt;Language 中设置其他语言。</p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011151118.png"></p><p>输入ChineseLocalization 回车等待，安装完成会自动切换成中文界面，我这里已经安装，不做过多演示</p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011151416.png"></p><h3 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h3><h4 id="首先屏蔽hosts"><a href="#首先屏蔽hosts" class="headerlink" title="首先屏蔽hosts"></a>首先屏蔽hosts</h4><p>找到 C:/Windows/System32/drivers/etc/hosts,编辑 hosts 加入</p><pre>    127.0.0.1        license.sublimehq.com</pre><h4 id="打开下载的压缩包"><a href="#打开下载的压缩包" class="headerlink" title="打开下载的压缩包"></a>打开下载的压缩包</h4><p>下载的压缩包内有两个文件</p><p>st3_twitter_patch.exe 复制到 SublimeText 3 安装目录(根目录)</p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20190909144930818.png"></p><p>右键以管理员身份运行，<br><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011153116.png"></p><p>点击patch，获取激活码 </p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011153250.png"></p><h4 id="复制代码"><a href="#复制代码" class="headerlink" title="复制代码"></a>复制代码</h4><pre>-- BEGIN LICENSE --TwitterInc200 User LicenseEA7E-8900071D77F72E 390CDD93 4DCBA022 FAF6079061AA12C0 A37081C5 D0316412 4584D13694D7F7D4 95BC8C1C 527DA828 560BB037D1EDDD8C AE7B379F 50C9D69D B35179EF2FE898C4 8E4277A8 555CE714 E1FB0E43D5D52613 C3D12E98 BC49967F 7652EED29D2D2E61 67610860 6D338B72 5CF95C69E36B85CC 84991F19 7575D828 470A92AB-- END LICENSE --</pre><p>打开Sublime Text 3 点击<strong> 帮助(H) </strong> - 输入注册码</p><p>将代码粘贴进去,点击 <strong> Use License </strong> </p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011153856.png"></p><h4 id="注册成功"><a href="#注册成功" class="headerlink" title="注册成功"></a>注册成功</h4><p><img alt="图片预览" width="20%" src="../../../../../res/2019/10/11/4/20191011153751.png"></p><h4 id="关闭软件更新"><a href="#关闭软件更新" class="headerlink" title="关闭软件更新"></a>关闭软件更新</h4><p><strong>首选项(N)</strong>——&gt; 设置</p><p>加入 </p><pre style="color:red;">    "update_check": false</pre><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011154551.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;Sublime Text 3.2.1 -Build 3207&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;这款软件具有良好的UI风格，丰
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://chsengni.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="sublime text 3" scheme="https://chsengni.github.io/tags/sublime-text-3/"/>
+    
+      <category term="破解" scheme="https://chsengni.github.io/tags/%E7%A0%B4%E8%A7%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>Web前端框架集合</title>
-    <link href="https://chsengni.github.io/2019/12/17/qian-duan/6/"/>
-    <id>https://chsengni.github.io/2019/12/17/qian-duan/6/</id>
+    <link href="https://chsengni.github.io/qian-duan/6/"/>
+    <id>https://chsengni.github.io/qian-duan/6/</id>
     <published>2019-12-17T08:06:37.000Z</published>
     <updated>2019-12-17T08:22:02.970Z</updated>
     
@@ -47,8 +76,8 @@
   
   <entry>
     <title>SpringBoot集成Druid自动登录</title>
-    <link href="https://chsengni.github.io/2019/12/04/hou-duan/3/"/>
-    <id>https://chsengni.github.io/2019/12/04/hou-duan/3/</id>
+    <link href="https://chsengni.github.io/hou-duan/3/"/>
+    <id>https://chsengni.github.io/hou-duan/3/</id>
     <published>2019-12-04T04:50:32.000Z</published>
     <updated>2019-12-04T06:06:10.698Z</updated>
     
@@ -77,8 +106,8 @@
   
   <entry>
     <title>SpringBoot集成通用 mapper</title>
-    <link href="https://chsengni.github.io/2019/11/19/hou-duan/2/"/>
-    <id>https://chsengni.github.io/2019/11/19/hou-duan/2/</id>
+    <link href="https://chsengni.github.io/hou-duan/2/"/>
+    <id>https://chsengni.github.io/hou-duan/2/</id>
     <published>2019-11-19T08:16:21.000Z</published>
     <updated>2019-12-04T05:22:28.354Z</updated>
     
@@ -109,8 +138,8 @@
   
   <entry>
     <title>Docker常用命令</title>
-    <link href="https://chsengni.github.io/2019/11/14/rong-qi/1/"/>
-    <id>https://chsengni.github.io/2019/11/14/rong-qi/1/</id>
+    <link href="https://chsengni.github.io/rong-qi/1/"/>
+    <id>https://chsengni.github.io/rong-qi/1/</id>
     <published>2019-11-14T13:12:35.000Z</published>
     <updated>2019-11-16T15:39:24.429Z</updated>
     
@@ -135,8 +164,8 @@
   
   <entry>
     <title>SpringBoot与Layui框架</title>
-    <link href="https://chsengni.github.io/2019/11/13/hou-duan/1/"/>
-    <id>https://chsengni.github.io/2019/11/13/hou-duan/1/</id>
+    <link href="https://chsengni.github.io/hou-duan/1/"/>
+    <id>https://chsengni.github.io/hou-duan/1/</id>
     <published>2019-11-13T11:48:55.000Z</published>
     <updated>2019-11-13T12:36:52.567Z</updated>
     
@@ -161,8 +190,8 @@
   
   <entry>
     <title>酷Q 机器人</title>
-    <link href="https://chsengni.github.io/2019/11/13/yu-le/2/"/>
-    <id>https://chsengni.github.io/2019/11/13/yu-le/2/</id>
+    <link href="https://chsengni.github.io/yu-le/2/"/>
+    <id>https://chsengni.github.io/yu-le/2/</id>
     <published>2019-11-13T08:12:47.000Z</published>
     <updated>2019-11-13T10:01:52.419Z</updated>
     
@@ -187,8 +216,8 @@
   
   <entry>
     <title>抖音小黄脸</title>
-    <link href="https://chsengni.github.io/2019/10/12/yu-le/1/"/>
-    <id>https://chsengni.github.io/2019/10/12/yu-le/1/</id>
+    <link href="https://chsengni.github.io/yu-le/1/"/>
+    <id>https://chsengni.github.io/yu-le/1/</id>
     <published>2019-10-12T14:52:22.000Z</published>
     <updated>2019-10-15T12:06:17.491Z</updated>
     
@@ -214,8 +243,8 @@
   
   <entry>
     <title>Sublime Text 3 常用快捷键</title>
-    <link href="https://chsengni.github.io/2019/10/11/qian-duan/5/"/>
-    <id>https://chsengni.github.io/2019/10/11/qian-duan/5/</id>
+    <link href="https://chsengni.github.io/qian-duan/5/"/>
+    <id>https://chsengni.github.io/qian-duan/5/</id>
     <published>2019-10-11T08:01:07.000Z</published>
     <updated>2019-10-12T04:39:38.169Z</updated>
     
@@ -242,38 +271,9 @@
   </entry>
   
   <entry>
-    <title>提升编程效率-Sublime Text 3 激活</title>
-    <link href="https://chsengni.github.io/2019/10/11/qian-duan/4/"/>
-    <id>https://chsengni.github.io/2019/10/11/qian-duan/4/</id>
-    <published>2019-10-11T06:26:12.750Z</published>
-    <updated>2019-10-12T04:39:26.320Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>Sublime Text 3.2.1 -Build 3207</strong></p><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>这款软件具有良好的UI风格，丰富的插件，全面的代码提示功能，使用起来可以提升编程效率。</p><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>链接: <a href="https://pan.baidu.com/s/12sm7DUzfYDXOJvOMHrOrQg" target="_blank" rel="noopener">https://pan.baidu.com/s/12sm7DUzfYDXOJvOMHrOrQg</a> 提取码: afr7  （10.3MB）包含破解补丁</p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011143233.png"></p><h3 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h3><p>1、安装 Package Control</p><h4 id="第一步：按住-Ctrl-键-调出-sublime-的控制台；"><a href="#第一步：按住-Ctrl-键-调出-sublime-的控制台；" class="headerlink" title="第一步：按住 Ctrl + ~ 键,调出 sublime 的控制台；"></a>第一步：按住 Ctrl + ~ 键,调出 sublime 的控制台；</h4><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011145916.png"></p><h4 id="第二步：在调出的控制台输入如下指令"><a href="#第二步：在调出的控制台输入如下指令" class="headerlink" title="第二步：在调出的控制台输入如下指令"></a>第二步：在调出的控制台输入如下指令</h4><pre>import urllib.request,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),'wb').write(urllib.request.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())</pre><p>回车，稍等一会，因为在下载文件所以非常卡，不要动等它下完，如果在 Preferences 里有 Package Control 就说明安装成功了；</p><h4 id="第三步：点击菜单-Preferences-N-—-gt-Package-Control"><a href="#第三步：点击菜单-Preferences-N-—-gt-Package-Control" class="headerlink" title="第三步：点击菜单 Preferences(N) —&gt; Package Control"></a>第三步：点击菜单 Preferences(N) —&gt; Package Control</h4><p>或者使用快捷键 Ctrl + Shift + P调出 Package Control，输入Install Package 选择并回车，查找ChineseLocalization插件，选择回车安装成功后会自动切换成中文简体，可以在帮助 —&gt;Language 中设置其他语言。</p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011151118.png"></p><p>输入ChineseLocalization 回车等待，安装完成会自动切换成中文界面，我这里已经安装，不做过多演示</p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011151416.png"></p><h3 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h3><h4 id="首先屏蔽hosts"><a href="#首先屏蔽hosts" class="headerlink" title="首先屏蔽hosts"></a>首先屏蔽hosts</h4><p>找到 C:/Windows/System32/drivers/etc/hosts,编辑 hosts 加入</p><pre>    127.0.0.1        license.sublimehq.com</pre><h4 id="打开下载的压缩包"><a href="#打开下载的压缩包" class="headerlink" title="打开下载的压缩包"></a>打开下载的压缩包</h4><p>下载的压缩包内有两个文件</p><p>st3_twitter_patch.exe 复制到 SublimeText 3 安装目录(根目录)</p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20190909144930818.png"></p><p>右键以管理员身份运行，<br><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011153116.png"></p><p>点击patch，获取激活码 </p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011153250.png"></p><h4 id="复制代码"><a href="#复制代码" class="headerlink" title="复制代码"></a>复制代码</h4><pre>-- BEGIN LICENSE --TwitterInc200 User LicenseEA7E-8900071D77F72E 390CDD93 4DCBA022 FAF6079061AA12C0 A37081C5 D0316412 4584D13694D7F7D4 95BC8C1C 527DA828 560BB037D1EDDD8C AE7B379F 50C9D69D B35179EF2FE898C4 8E4277A8 555CE714 E1FB0E43D5D52613 C3D12E98 BC49967F 7652EED29D2D2E61 67610860 6D338B72 5CF95C69E36B85CC 84991F19 7575D828 470A92AB-- END LICENSE --</pre><p>打开Sublime Text 3 点击<strong> 帮助(H) </strong> - 输入注册码</p><p>将代码粘贴进去,点击 <strong> Use License </strong> </p><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011153856.png"></p><h4 id="注册成功"><a href="#注册成功" class="headerlink" title="注册成功"></a>注册成功</h4><p><img alt="图片预览" width="20%" src="../../../../../res/2019/10/11/4/20191011153751.png"></p><h4 id="关闭软件更新"><a href="#关闭软件更新" class="headerlink" title="关闭软件更新"></a>关闭软件更新</h4><p><strong>首选项(N)</strong>——&gt; 设置</p><p>加入 </p><pre style="color:red;">    "update_check": false</pre><p><img alt="图片预览" width="60%" src="../../../../../res/2019/10/11/4/20191011154551.png"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;Sublime Text 3.2.1 -Build 3207&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;这款软件具有良好的UI风格，丰
-      
-    
-    </summary>
-    
-    
-      <category term="前端" scheme="https://chsengni.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="sublime text 3" scheme="https://chsengni.github.io/tags/sublime-text-3/"/>
-    
-      <category term="破解" scheme="https://chsengni.github.io/tags/%E7%A0%B4%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
     <title>嵌入在线工具-程序员的工具箱</title>
-    <link href="https://chsengni.github.io/2019/10/05/qian-duan/3/"/>
-    <id>https://chsengni.github.io/2019/10/05/qian-duan/3/</id>
+    <link href="https://chsengni.github.io/qian-duan/3/"/>
+    <id>https://chsengni.github.io/qian-duan/3/</id>
     <published>2019-10-05T13:00:45.000Z</published>
     <updated>2019-10-06T13:49:11.386Z</updated>
     
@@ -299,8 +299,8 @@
   
   <entry>
     <title>免积分下载模板和特效</title>
-    <link href="https://chsengni.github.io/2019/10/04/qian-duan/2/"/>
-    <id>https://chsengni.github.io/2019/10/04/qian-duan/2/</id>
+    <link href="https://chsengni.github.io/qian-duan/2/"/>
+    <id>https://chsengni.github.io/qian-duan/2/</id>
     <published>2019-10-04T13:56:45.000Z</published>
     <updated>2019-10-04T16:32:11.854Z</updated>
     
@@ -327,8 +327,8 @@
   
   <entry>
     <title>时钟</title>
-    <link href="https://chsengni.github.io/2019/10/02/jie-jing/4/"/>
-    <id>https://chsengni.github.io/2019/10/02/jie-jing/4/</id>
+    <link href="https://chsengni.github.io/jie-jing/4/"/>
+    <id>https://chsengni.github.io/jie-jing/4/</id>
     <published>2019-10-02T06:56:48.000Z</published>
     <updated>2019-10-04T00:07:28.765Z</updated>
     
@@ -355,8 +355,8 @@
   
   <entry>
     <title>常用软件和Linux系统下载地址</title>
-    <link href="https://chsengni.github.io/2019/10/02/jie-jing/3/"/>
-    <id>https://chsengni.github.io/2019/10/02/jie-jing/3/</id>
+    <link href="https://chsengni.github.io/jie-jing/3/"/>
+    <id>https://chsengni.github.io/jie-jing/3/</id>
     <published>2019-10-02T06:49:26.000Z</published>
     <updated>2019-10-04T00:07:17.167Z</updated>
     
@@ -383,8 +383,8 @@
   
   <entry>
     <title>王者荣耀图片下载</title>
-    <link href="https://chsengni.github.io/2019/10/02/jie-jing/2/"/>
-    <id>https://chsengni.github.io/2019/10/02/jie-jing/2/</id>
+    <link href="https://chsengni.github.io/jie-jing/2/"/>
+    <id>https://chsengni.github.io/jie-jing/2/</id>
     <published>2019-10-02T06:15:34.000Z</published>
     <updated>2019-10-04T00:21:37.661Z</updated>
     
@@ -409,8 +409,8 @@
   
   <entry>
     <title>词霸翻译</title>
-    <link href="https://chsengni.github.io/2019/10/02/jie-jing/1/"/>
-    <id>https://chsengni.github.io/2019/10/02/jie-jing/1/</id>
+    <link href="https://chsengni.github.io/jie-jing/1/"/>
+    <id>https://chsengni.github.io/jie-jing/1/</id>
     <published>2019-10-02T05:08:14.000Z</published>
     <updated>2019-10-04T00:23:53.719Z</updated>
     
@@ -435,8 +435,8 @@
   
   <entry>
     <title>这么久没见</title>
-    <link href="https://chsengni.github.io/2019/09/30/yin-le/2/"/>
-    <id>https://chsengni.github.io/2019/09/30/yin-le/2/</id>
+    <link href="https://chsengni.github.io/yin-le/2/"/>
+    <id>https://chsengni.github.io/yin-le/2/</id>
     <published>2019-09-30T13:12:48.000Z</published>
     <updated>2019-10-04T00:08:05.256Z</updated>
     
@@ -461,8 +461,8 @@
   
   <entry>
     <title>没有人会心疼我</title>
-    <link href="https://chsengni.github.io/2019/09/30/yin-le/1/"/>
-    <id>https://chsengni.github.io/2019/09/30/yin-le/1/</id>
+    <link href="https://chsengni.github.io/yin-le/1/"/>
+    <id>https://chsengni.github.io/yin-le/1/</id>
     <published>2019-09-30T05:05:35.000Z</published>
     <updated>2019-10-04T00:07:53.602Z</updated>
     
@@ -487,8 +487,8 @@
   
   <entry>
     <title>岁月神偷</title>
-    <link href="https://chsengni.github.io/2019/09/30/yin-le/3/"/>
-    <id>https://chsengni.github.io/2019/09/30/yin-le/3/</id>
+    <link href="https://chsengni.github.io/yin-le/3/"/>
+    <id>https://chsengni.github.io/yin-le/3/</id>
     <published>2019-09-30T05:05:35.000Z</published>
     <updated>2019-10-04T00:08:17.398Z</updated>
     
@@ -513,8 +513,8 @@
   
   <entry>
     <title>hexo的使用</title>
-    <link href="https://chsengni.github.io/2019/09/30/qian-duan/1/"/>
-    <id>https://chsengni.github.io/2019/09/30/qian-duan/1/</id>
+    <link href="https://chsengni.github.io/qian-duan/1/"/>
+    <id>https://chsengni.github.io/qian-duan/1/</id>
     <published>2019-09-30T02:58:35.000Z</published>
     <updated>2019-10-04T00:07:39.849Z</updated>
     

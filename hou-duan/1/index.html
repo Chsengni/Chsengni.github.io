@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SpringBoot与Layui框架 | 陈增林 | Chsengni</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="SpringBoot">
+    <meta name="description" content="实习的时候，自己慢慢摸索使用Layui，刚开始看到这个框架就头疼，到现在只是了解了一部分，框架虽然精美，对于初学者来说没那么容易，经过两个星期的折腾，终于弄得像样了                                                                                                             以下部分内容，仅供">
+<meta name="keywords" content="SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot与Layui框架">
+<meta property="og:url" content="https://chsengni.github.io/hou-duan/1/index.html">
+<meta property="og:site_name" content="陈增林">
+<meta property="og:description" content="实习的时候，自己慢慢摸索使用Layui，刚开始看到这个框架就头疼，到现在只是了解了一部分，框架虽然精美，对于初学者来说没那么容易，经过两个星期的折腾，终于弄得像样了                                                                                                             以下部分内容，仅供">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://chsengni.github.io/res/2019/11/13/1/1.jpg">
+<meta property="og:updated_time" content="2019-11-13T12:36:52.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringBoot与Layui框架">
+<meta name="twitter:description" content="实习的时候，自己慢慢摸索使用Layui，刚开始看到这个框架就头疼，到现在只是了解了一部分，框架虽然精美，对于初学者来说没那么容易，经过两个星期的折腾，终于弄得像样了                                                                                                             以下部分内容，仅供">
+<meta name="twitter:image" content="https://chsengni.github.io/res/2019/11/13/1/1.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="陈增林" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link href="/css/prism/prism-tomorrow-night.css" rel="stylesheet">
+    <script>window.lazyScripts=[]</script>
+	<style>
+		.article-tag-list-link{
+			text-decoration:none !important;
+		}
+		.post-more{
+			
+		}
+		
+		header{
+			background-color:steelblue !important;
+		}
+		
+	
+		#gotop{
+			background-color:steelblue !important;
+		}
+		
+		#gobottom{
+			background-color:steelblue !important;
+		}
+		
+		.post-content{
+			color:gray;
+			font-size:15px;
+		}
+		.post-title-link{
+			color:#666666 !important;
+			font-size:20px;
+		}
+	</style>
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-list-ul"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/back_blue.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/fong.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">陈增林</h5>
+          <a href="mailto:2371778707@qq.com" title="2371778707@qq.com" class="mail">2371778707@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-folder-open"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives/"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/web/"  >
+                <i class="icon icon-lg icon-bookmark"></i>
+                网站
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SpringBoot与Layui框架</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SpringBoot与Layui框架</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-13T11:48:55.000Z" itemprop="datePublished" class="page-time">
+  2019-11-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/后端/">后端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>预览</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#页面"><span class="post-toc-text">页面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Controller"><span class="post-toc-text">Controller</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Service的实现类"><span class="post-toc-text">Service的实现类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#service-接口"><span class="post-toc-text">service 接口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Mapper-接口"><span class="post-toc-text">Mapper 接口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#pom-xml"><span class="post-toc-text">pom.xml</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-后端/1"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SpringBoot与Layui框架</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-13 19:48:55" datetime="2019-11-13T11:48:55.000Z"  itemprop="datePublished">2019-11-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/后端/">后端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章阅读总量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>实习的时候，自己慢慢摸索使用<a href="https://www.layui.com/" target="_blank" rel="noopener">Layui</a>，刚开始看到这个框架就头疼，到现在只是了解了一部分，框架虽然精美，对于初学者来说没那么容易，经过两个星期的折腾，终于弄得像样了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="../../../../../res/2019/11/13/1/1.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<font style="color:red">
+以下部分内容，仅供参考！
+</font>
+
+<h4 id="页面"><a href="#页面" class="headerlink" title="页面"></a>页面</h4><hr>
+<pre><code>&lt;html lang=&quot;zh-CN&quot;  xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;
+    &lt;title&gt;用户&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; th:href=&quot;@{/layui/css/layui.css}&quot;&gt;
+&lt;/head&gt;
+
+&lt;!--
+    ..............
+    ..............
+    ..............
+    --&gt;
+&lt;table class=&quot;layui-hide&quot; id=&quot;test&quot; lay-filter=&quot;test&quot;&gt;&lt;/table&gt;
+
+&lt;!--
+    ..............
+    ..............
+    ..............
+    --&gt;
+
+&lt;script th:src=&quot;@{/layui/layui.js}&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;script th:inline=&quot;none&quot;&gt;
+    layui.use([&#39;table&#39;,&#39;util&#39;],function () {
+        var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
+        var table = layui.table;
+        table.render({
+            elem: &#39;#test&#39;
+            , url: &#39;/user/getUsers&#39;
+            , toolbar: &#39;#toolbarDemo&#39;
+            , cellMinWidth: 80
+            , cellMinHeight: 500
+            , limits: [10, 20, 50]
+            , limit: 10
+            , method: &#39;post&#39;
+            , defaultToolbar: [&#39;filter&#39;, &#39;exports&#39;, &#39;print&#39;, {
+                title: &#39;提示&#39;
+                , layEvent: &#39;LAYTABLE_TIPS&#39;
+                , icon: &#39;layui-icon-tips&#39;
+            }]
+            , title: &#39;用户数据表&#39;
+            , cols: [
+                [
+                    {type: &#39;checkbox&#39;, fixed: &#39;true&#39;}
+                    , {field: &#39;uid&#39;, title: &#39;ID&#39;, width: 60, sort: true, fixed: true}
+                    , {field: &#39;username&#39;, title: &#39;账号&#39;,width:100}
+                    , {field: &#39;nickname&#39;, title: &#39;昵称&#39;, width: 120}
+                    , {field: &#39;password&#39;, title: &#39;密码&#39;,width: 120}
+                    , {field: &#39;answer&#39;, title: &#39;答案&#39;, width:100}
+                    , {field: &#39;phone&#39;, title: &#39;电话&#39;, width: 80, sort: true}
+                    , {field: &#39;address&#39;, title: &#39;地址&#39;, width: 150}
+                    , {field: &#39;registerDate&#39;, title: &#39;注册日期&#39;, sort: true,width:160,templet:function(d){return layui.util.toDateString(d.registerDate,&#39;yyyy-MM-dd HH:mm:ss&#39;);}}
+                    , {field: &#39;status&#39;, title: &#39;状态&#39;, templet: &#39;#lockStatus&#39;,width:110, unresize: true}
+                    , {field: &#39;permission&#39;, title: &#39;权限&#39;, templet: &#39;#lockPermission&#39;,width:110, unresize: true}
+                    , {fixed: &#39;right&#39;, title: &#39;操作&#39;, toolbar: &#39;#barDemo&#39;}
+                ]
+            ]
+            , id: &#39;testReload&#39;
+            , page: true
+            , done: function (res, curr, count) {
+                layer.closeAll(&#39;loading&#39;);
+            }
+        });
+
+    });
+&lt;/script&gt;
+</code></pre><h4 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h4><hr>
+<pre><code>@RestController
+@RequestMapping(&quot;/user&quot;)
+public class UserController {
+
+    @Autowired
+    UserService service;
+
+
+    @RequestMapping(&quot;/getUsers&quot;)
+    public Object getUsers(@RequestParam(defaultValue = &quot;1&quot;) int page, @RequestParam(defaultValue = &quot;10&quot;)int limit,HttpSession session){
+        Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+        if (session.getAttribute(&quot;user&quot;)!=null){
+            User user = (User)session.getAttribute(&quot;user&quot;);
+            if (user.getPermission().equals(&quot;1&quot;)){
+
+                try {
+                    PageInfo&lt;User&gt; pageInfo= service.getUsers(page,limit);
+                    map.put(&quot;data&quot;, pageInfo.getList());
+                    map.put(&quot;code&quot;, 0);
+                    map.put(&quot;msg&quot;, &quot;请求成功&quot;);
+                    map.put(&quot;count&quot;, pageInfo.getTotal());
+
+                }catch (Exception e){
+                    map.put(&quot;code&quot;,&quot;404&quot;);
+                    map.put(&quot;msg&quot;,&quot;保存失败&quot;);
+                    map.put(&quot;close&quot;,&quot;false&quot;);
+                }
+                return map;
+            }else {
+                map.put(&quot;msg&quot;,&quot;forbidden&quot;);
+                map.put(&quot;code&quot;,&quot;403&quot;);
+                map.put(&quot;error&quot;,&quot;无权限&quot;);
+            }
+        }else {
+            map.put(&quot;msg&quot;,&quot;forbidden&quot;);
+            map.put(&quot;code&quot;,&quot;404&quot;);
+            map.put(&quot;error&quot;,&quot;请求错误&quot;);
+        }
+
+        return map;
+    }
+}
+</code></pre><h4 id="Service的实现类"><a href="#Service的实现类" class="headerlink" title="Service的实现类"></a>Service的实现类</h4><hr>
+<pre><code>@Service
+public class UserServiceImpl implements UserService {
+    @Autowired
+    UserMapper mapper;
+
+    /**
+     * 查询所有用户并且分页
+     * @param page
+     * @param limit
+     * @return
+     */
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Override
+    public PageInfo&lt;User&gt; getUsers(int page,int limit) {
+        PageHelper.startPage(page, limit);
+        List&lt;User&gt; users = mapper.getUsers();
+        PageInfo&lt;User&gt; pageInfo = new PageInfo&lt;&gt;(users);
+        return pageInfo;
+    }
+
+}
+</code></pre><h4 id="service-接口"><a href="#service-接口" class="headerlink" title="service 接口"></a>service 接口</h4><hr>
+<pre><code>public interface UserService {
+    PageInfo&lt;User&gt; getUsers(int page,int limit);
+}
+</code></pre><h4 id="Mapper-接口"><a href="#Mapper-接口" class="headerlink" title="Mapper 接口"></a>Mapper 接口</h4><hr>
+<p>主要用Mybatis注解查询</p>
+<pre><code>@Repository
+@Mapper
+public interface UserMapper {
+
+    @Select(&quot;select * from user&quot;)
+    List&lt;User&gt; getUsers();
+}
+</code></pre><h4 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h4><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.2.0.RELEASE&lt;/version&gt;
+        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+    &lt;/parent&gt;
+    &lt;groupId&gt;com.czl&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-order-food&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;demo&lt;/name&gt;
+    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+
+    &lt;properties&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+        &lt;thymeleaf.version&gt;3.0.11.RELEASE&lt;/thymeleaf.version&gt;
+        &lt;thymeleaf-layout-dialect.version&gt;2.1.1&lt;/thymeleaf-layout-dialect.version&gt;
+    &lt;/properties&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;2.1.1&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+            &lt;artifactId&gt;pagehelper&lt;/artifactId&gt;
+            &lt;version&gt;5.1.10&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+            &lt;artifactId&gt;pagehelper-spring-boot-autoconfigure&lt;/artifactId&gt;
+            &lt;version&gt;1.2.3&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+            &lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;1.2.3&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+            &lt;exclusions&gt;
+                &lt;exclusion&gt;
+                    &lt;groupId&gt;org.junit.vintage&lt;/groupId&gt;
+                    &lt;artifactId&gt;junit-vintage-engine&lt;/artifactId&gt;
+                &lt;/exclusion&gt;
+            &lt;/exclusions&gt;
+        &lt;/dependency&gt;
+        &lt;!-- https://mvnrepository.com/artifact/com.alibaba/fastjson --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+            &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+            &lt;version&gt;1.2.62&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- https://mvnrepository.com/artifact/com.xfvape.uid/uid-generator --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.xfvape.uid&lt;/groupId&gt;
+            &lt;artifactId&gt;uid-generator&lt;/artifactId&gt;
+            &lt;version&gt;0.0.4-RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+
+    &lt;/dependencies&gt;
+
+    &lt;!-- Maven仓库地址 (下载源) --&gt;
+    &lt;repositories&gt;
+        &lt;repository&gt;
+            &lt;id&gt;central-repos&lt;/id&gt;
+            &lt;name&gt;Central Repository&lt;/name&gt;
+            &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;
+            &lt;releases&gt;
+                &lt;enabled&gt;true&lt;/enabled&gt;
+            &lt;/releases&gt;
+            &lt;snapshots&gt;
+                &lt;enabled&gt;false&lt;/enabled&gt;
+            &lt;/snapshots&gt;
+        &lt;/repository&gt;
+    &lt;/repositories&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+&lt;/project&gt;
+</code></pre><p>好了，就这样吧，有问题评论一下！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-13T12:36:52.567Z" itemprop="dateUpdated">2019-11-13 20:36:52</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://chsengni.github.io">
+            <img src="/img/fong.jpg" alt="陈增林">
+            陈增林
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:a();" class="page-reward-btn waves-effect waves-circle waves-light">支持</a>
+</div>
+<!--
+<script>
+	function a(){ 
+			var procbg = document.createElement("div"); //首先创建一个div
+			procbg.setAttribute("id", "mybg"); //定义该div的id
+			procbg.style.background = "#808080";
+			procbg.style.width = "100%";
+			procbg.style.height = "100%";
+			procbg.style.position = "fixed";
+			procbg.style.top = "0";
+			procbg.style.left = "0";
+			procbg.style.zIndex = "500";
+			procbg.style.opacity = "0.2";
+			procbg.style.filter = "Alpha(opacity=70)";
+			document.body.appendChild(procbg);
+			//document.body.style.overflow = "hidden"; //取消滚动条
+	
+	}
+
+</script>
+-->
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chsengni.github.io/hou-duan/1/&title=《SpringBoot与Layui框架》 — 陈增林&pic=https://chsengni.github.io/img/fong.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chsengni.github.io/hou-duan/1/&title=《SpringBoot与Layui框架》 — 陈增林&source=一个专注IT技术发展的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chsengni.github.io/hou-duan/1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SpringBoot与Layui框架》 — 陈增林&url=https://chsengni.github.io/hou-duan/1/&via=https://chsengni.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chsengni.github.io/hou-duan/1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/rong-qi/1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一页</div>
+        <h4 class="title">Docker常用命令</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/yu-le/2/" id="post-next" class="post-nav-link">
+        <div class="tips">下一页 <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">酷Q 机器人</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+            var id = location.pathname
+            if (location.pathname.length > 50) {
+              id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+            }
+            const gitalk = new Gitalk({
+              clientID: 'ecf207fbd3dcbf960136',
+              clientSecret: '3e224efe9d9563b85c779fa10be44dd8cfa0d90f',
+              repo: 'gitalk',
+              owner: 'Chsengni',
+              admin: ['Chsengni'],
+              id: id,      // Ensure uniqueness and length less than 50
+              title: document.title.split('|')[0],
+              distractionFreeMode: false  // Facebook-like distraction free mode
+            })
+            gitalk.render('gitalk-container')
+        </script>
+    </section>
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢支持~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-item switch">切换</span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+    </main>
+	<footer class="footer">
+	
+    <div class="bottom">
+		<p>
+			
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点访客总数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点访问总量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+		</p>
+        <p>
+            <span>
+                陈增林 &copy;
+                    
+                        2019 -
+                            
+                                2020
+            </span>
+            <span>
+				  Hosted by <a href="https://pages.github.com/" style="font-weight: bold">Github Pages</a>
+			</span>
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<a href="javascript:;" id="gobottom" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-comments"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chsengni.github.io/hou-duan/1/&title=《SpringBoot与Layui框架》 — 陈增林&pic=https://chsengni.github.io/img/fong.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chsengni.github.io/hou-duan/1/&title=《SpringBoot与Layui框架》 — 陈增林&source=一个专注IT技术发展的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chsengni.github.io/hou-duan/1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SpringBoot与Layui框架》 — 陈增林&url=https://chsengni.github.io/hou-duan/1/&via=https://chsengni.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chsengni.github.io/hou-duan/1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvklEQVR42u3aQZKDMAwEQP7/afaaqmzISMIOh/aJSjam2YNKHnEc8Tpf1vsnybef9jxWLFxc3DH3vFzJ7RPcOzF5+H92w8XF3cjNt84LWe/6iw0XF/eR3E/0vOTh4uLiVtsdXFzc53DzliUPNSYxyg1nNVxc3AE3TynXXS/Jd3FxcVvcs7ium5j8urdwcXH3cKvNSjI0zR+mel9cXNw93OsiVS1JVUr5X4OLi7uRm9/metTaC0cKBREXF3cLt0epjlF7AeiXAAUXF3cZt0qsjj2S5inZARcX91fc3ssW84I1Ovzg4uIu4E4OJ5M4NYlgonwXFxd3GfeuFy+qMUe+Gy4u7n7uPAadjE5HdRcXF3cZNx9+5CVsfvgp7IOLi7uA29s6L1i9FzsKdRcXF3c7tzf86DVMUeuDi4u7kZu3KdUgtXc0ik5OuLi4C7hncSXcfAxTHsri4uJu4VaPOr1wM6fnRRYXF3c1t1e8qkPW6kCl2ejg4uLeys0LTfU1i8nhpxCY4uLi/pSbx6x5+Suf2HBxcR/MvS21zX+Li4u7kZs3KNWjTv5gUVOFi4u7hVsuJa2/6Y1qRvkuLi5uh/sHktY9rLJIPAMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+<script type="text/javascript" src="/./js/love.js">
+
+    <script src="//cdn.jsdelivr.net/npm/node-waves@0.7.6/src/js/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script src="/js/prism.js"></script>
+<script src="/js/prism-vim.js"></script>
+	
+</body>
+</html>
