@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chsengni.github.io/web/index.html</loc>
+    
+    <lastmod>2020-10-06T04:30:04.619Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chsengni.github.io/profile/index.html</loc>
     
     <lastmod>2020-10-06T01:26:10.589Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://chsengni.github.io/components/index.html</loc>
     
     <lastmod>2020-10-06T01:23:56.933Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chsengni.github.io/web/index.html</loc>
-    
-    <lastmod>2020-10-06T01:08:29.457Z</lastmod>
     
   </url>
   
